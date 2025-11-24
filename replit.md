@@ -8,7 +8,17 @@ The application features a conversational chat interface where users can ask que
 
 ## Recent Changes
 
-**November 24, 2025 (Latest)**: Expanded knowledge base to **200 total entries** by adding 100 additional unique questions and answers covering:
+**November 24, 2025 (Latest)**: Expanded knowledge base to **300 total entries** by adding 100 general conversation questions covering everyday life topics:
+- Personal development (confidence, motivation, habits, resilience, growth mindset)
+- Social skills (making friends, conversations, networking, first impressions, small talk)
+- Life advice (dealing with anxiety, stress, loneliness, criticism, change, failure)
+- Work & career (job interviews, work-life balance, productivity, teamwork, leadership)
+- Communication (listening, feedback, apologies, setting boundaries, conflict resolution)
+- Daily routines (morning/bedtime routines, organization, time management)
+- Emotional intelligence (empathy, self-care, gratitude, handling emotions)
+- Practical wisdom (decision-making, learning, problem-solving, adaptability)
+
+**November 24, 2025 (Second Update)**: Expanded knowledge base to **200 total entries** by adding 100 additional unique questions and answers covering:
 - Advanced programming topics (TypeScript, Redux, SQL, REST APIs, debugging, refactoring)
 - Extended science coverage (Newton's laws, meiosis, immune/nervous/muscular systems, homeostasis)
 - Additional chemistry concepts (acids, bases, catalysts, oxidation, chemical bonds)

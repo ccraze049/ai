@@ -998,5 +998,505 @@
     "id": "200",
     "question": "What is dependency injection?",
     "answer": "Dependency injection is a design pattern where objects receive their dependencies from external sources rather than creating them internally. It makes code more modular, testable, and maintainable by reducing tight coupling between components."
+  },
+  {
+    "id": "201",
+    "question": "How do I make a good first impression?",
+    "answer": "Smile genuinely, make eye contact, offer a firm handshake, dress appropriately, arrive on time, be positive and confident, listen actively, remember names, show genuine interest in others, and be yourself."
+  },
+  {
+    "id": "202",
+    "question": "What is the best way to start my day?",
+    "answer": "Wake up at a consistent time, drink water, do light exercise or stretching, eat a healthy breakfast, avoid checking phone immediately, practice gratitude or meditation, plan your day's priorities, and maintain a morning routine."
+  },
+  {
+    "id": "203",
+    "question": "How do I make new friends?",
+    "answer": "Join clubs or groups with shared interests, be approachable and smile, start conversations, ask questions and listen actively, be genuine and authentic, follow up with people, invite others to activities, and be patient."
+  },
+  {
+    "id": "204",
+    "question": "What is a good bedtime routine?",
+    "answer": "Set a consistent sleep schedule, avoid screens 1 hour before bed, dim the lights, read a book, take a warm shower, keep your room cool and dark, avoid caffeine late in the day, and practice relaxation techniques."
+  },
+  {
+    "id": "205",
+    "question": "How do I stay positive during difficult times?",
+    "answer": "Practice gratitude daily, focus on what you can control, surround yourself with supportive people, maintain healthy habits, limit negative news consumption, help others, set small achievable goals, and remember that challenges are temporary."
+  },
+  {
+    "id": "206",
+    "question": "What should I do if I feel lonely?",
+    "answer": "Reach out to friends or family, join community groups or classes, volunteer, engage in hobbies you enjoy, spend time in public spaces like cafes, consider getting a pet, practice self-compassion, and seek professional help if needed."
+  },
+  {
+    "id": "207",
+    "question": "How do I handle criticism?",
+    "answer": "Listen without interrupting, take a moment before responding, separate constructive feedback from personal attacks, ask for specific examples, thank the person for input, reflect objectively, focus on learning, and don't take everything personally."
+  },
+  {
+    "id": "208",
+    "question": "What is the best way to apologize?",
+    "answer": "Be sincere and specific about what you're sorry for, take full responsibility without excuses, acknowledge the impact of your actions, express genuine remorse, explain how you'll do better, and give the other person space to respond."
+  },
+  {
+    "id": "209",
+    "question": "How do I save money effectively?",
+    "answer": "Create a budget and track expenses, set up automatic savings transfers, cut unnecessary subscriptions, cook at home more often, use the 24-hour rule for impulse purchases, compare prices, and set specific savings goals."
+  },
+  {
+    "id": "210",
+    "question": "What is a healthy breakfast?",
+    "answer": "A balanced breakfast includes protein (eggs, yogurt), whole grains (oatmeal, whole wheat toast), fruits or vegetables, and healthy fats (nuts, avocado). Avoid sugary cereals and pastries. Stay hydrated with water or tea."
+  },
+  {
+    "id": "211",
+    "question": "How do I stop comparing myself to others?",
+    "answer": "Focus on your own progress and journey, limit social media use, practice gratitude for what you have, celebrate small wins, remember everyone has struggles, set personal goals, and remind yourself that comparison steals joy."
+  },
+  {
+    "id": "212",
+    "question": "What is the best way to learn something new?",
+    "answer": "Start with basics, practice regularly, teach others what you learn, use multiple learning methods, break it into small chunks, set achievable goals, embrace mistakes as learning opportunities, and stay curious and patient."
+  },
+  {
+    "id": "213",
+    "question": "How do I deal with anxiety?",
+    "answer": "Practice deep breathing exercises, stay physically active, limit caffeine and alcohol, maintain a regular sleep schedule, talk to someone you trust, challenge negative thoughts, practice mindfulness, and consider professional counseling if needed."
+  },
+  {
+    "id": "214",
+    "question": "What makes a good conversation?",
+    "answer": "Active listening, asking open-ended questions, showing genuine interest, sharing personal stories when appropriate, maintaining eye contact, avoiding interruptions, being present without distractions, and finding common ground."
+  },
+  {
+    "id": "215",
+    "question": "How do I stay focused while working?",
+    "answer": "Eliminate distractions, use the Pomodoro technique, take regular breaks, keep your workspace organized, set clear goals, turn off notifications, work during your peak energy hours, and tackle difficult tasks first."
+  },
+  {
+    "id": "216",
+    "question": "What is a good way to relax after work?",
+    "answer": "Exercise or take a walk, read a book, listen to music, practice a hobby, spend time with loved ones, take a warm bath, meditate or do yoga, disconnect from work emails, and do something you enjoy."
+  },
+  {
+    "id": "217",
+    "question": "How do I build confidence?",
+    "answer": "Set and achieve small goals, practice self-compassion, focus on your strengths, step out of your comfort zone regularly, maintain good posture, dress well, prepare thoroughly for challenges, and celebrate your accomplishments."
+  },
+  {
+    "id": "218",
+    "question": "What should I do if I make a mistake at work?",
+    "answer": "Acknowledge it immediately, take responsibility, inform relevant people, focus on solutions rather than excuses, learn from it, document what went wrong, implement changes to prevent recurrence, and don't dwell on it excessively."
+  },
+  {
+    "id": "219",
+    "question": "How do I improve my communication skills?",
+    "answer": "Practice active listening, be clear and concise, watch your body language, ask for feedback, read regularly to expand vocabulary, practice speaking in front of others, be empathetic, and pay attention to tone and context."
+  },
+  {
+    "id": "220",
+    "question": "What is the difference between being busy and being productive?",
+    "answer": "Being busy means filling time with activities without clear purpose. Being productive means accomplishing meaningful goals efficiently. Focus on results and impact, not just activity. Prioritize important tasks over urgent but less important ones."
+  },
+  {
+    "id": "221",
+    "question": "How do I handle disagreements with friends?",
+    "answer": "Stay calm and listen to their perspective, use 'I' statements instead of blaming, find common ground, compromise when possible, take a break if emotions run high, apologize if needed, and focus on maintaining the relationship."
+  },
+  {
+    "id": "222",
+    "question": "What is a good work-life balance?",
+    "answer": "Set clear boundaries between work and personal time, prioritize health and relationships, learn to say no, take regular breaks and vacations, pursue hobbies outside work, disconnect after work hours, and don't feel guilty about personal time."
+  },
+  {
+    "id": "223",
+    "question": "How do I stay motivated to exercise?",
+    "answer": "Set realistic goals, find activities you enjoy, exercise with a friend, track your progress, create a schedule, vary your routine, reward yourself for consistency, focus on how you feel not just appearance, and start small."
+  },
+  {
+    "id": "224",
+    "question": "What should I do when I feel overwhelmed?",
+    "answer": "Take a step back and breathe, break tasks into smaller steps, prioritize what's truly urgent, ask for help when needed, take a short break, focus on one thing at a time, practice self-care, and remember it's okay to not do everything."
+  },
+  {
+    "id": "225",
+    "question": "How do I make better decisions?",
+    "answer": "Gather relevant information, list pros and cons, consider long-term consequences, trust your intuition, seek advice from others, avoid decision fatigue by limiting choices, give yourself time when possible, and accept that no decision is perfect."
+  },
+  {
+    "id": "226",
+    "question": "What is the best way to give feedback?",
+    "answer": "Be specific and timely, focus on behavior not personality, balance positive and constructive comments, be private for criticism and public for praise, offer solutions, use 'I' statements, and make it a dialogue not a lecture."
+  },
+  {
+    "id": "227",
+    "question": "How do I stop procrastinating on important tasks?",
+    "answer": "Break tasks into tiny steps, use the 5-minute rule to just start, remove distractions, set deadlines, reward yourself for progress, understand why you're avoiding it, work during peak energy times, and make it easier to begin."
+  },
+  {
+    "id": "228",
+    "question": "What makes someone a good listener?",
+    "answer": "Giving full attention without distractions, maintaining eye contact, not interrupting, asking clarifying questions, showing empathy, remembering what was said, avoiding judgment, and responding thoughtfully rather than waiting to speak."
+  },
+  {
+    "id": "229",
+    "question": "How do I stop overthinking?",
+    "answer": "Set a time limit for decisions, focus on what you can control, challenge negative thoughts with facts, practice mindfulness, stay busy with activities, talk to someone, write down your thoughts, and accept imperfection."
+  },
+  {
+    "id": "230",
+    "question": "What is the best way to network professionally?",
+    "answer": "Attend industry events, be genuinely interested in others, follow up after meetings, offer value before asking for favors, use LinkedIn effectively, join professional groups, maintain relationships regularly, and be authentic."
+  },
+  {
+    "id": "231",
+    "question": "How do I deal with negative people?",
+    "answer": "Set boundaries, limit time spent with them, don't take negativity personally, stay positive yourself, don't engage in complaining, try to understand their perspective, redirect conversations to positive topics, and distance yourself if necessary."
+  },
+  {
+    "id": "232",
+    "question": "What should I do before a job interview?",
+    "answer": "Research the company thoroughly, prepare answers to common questions, prepare questions to ask them, practice with someone, choose professional attire, arrive early, bring extra copies of your resume, and get good sleep the night before."
+  },
+  {
+    "id": "233",
+    "question": "How do I stay organized?",
+    "answer": "Use a calendar or planner, create daily to-do lists, declutter regularly, have designated places for items, handle tasks immediately when possible, use the one-touch rule for papers, review and plan weekly, and develop routines."
+  },
+  {
+    "id": "234",
+    "question": "What is emotional intelligence?",
+    "answer": "Emotional intelligence is the ability to recognize, understand, and manage your own emotions while also recognizing and influencing others' emotions. It includes self-awareness, self-regulation, motivation, empathy, and social skills."
+  },
+  {
+    "id": "235",
+    "question": "How do I improve my posture?",
+    "answer": "Be aware of your posture throughout the day, strengthen core muscles, adjust your workspace ergonomically, take breaks from sitting, do stretching exercises, keep shoulders back and down, align ears over shoulders, and practice yoga."
+  },
+  {
+    "id": "236",
+    "question": "What is the best way to remember names?",
+    "answer": "Repeat the name immediately after hearing it, use it in conversation, create mental associations, pay attention when introduced, ask about spelling if unusual, write it down later, and review names before events where you'll see people again."
+  },
+  {
+    "id": "237",
+    "question": "How do I maintain friendships as an adult?",
+    "answer": "Make time for friends despite busy schedules, reach out regularly even just to check in, be present when together, celebrate their successes, support during hard times, share experiences, be reliable, and accept that relationships evolve."
+  },
+  {
+    "id": "238",
+    "question": "What should I do if I feel stuck in life?",
+    "answer": "Reflect on your values and what matters to you, set new goals, try something outside your comfort zone, talk to a mentor or counselor, change your routine, learn a new skill, reconnect with old passions, and be patient with yourself."
+  },
+  {
+    "id": "239",
+    "question": "How do I stop being a perfectionist?",
+    "answer": "Set realistic standards, focus on progress over perfection, embrace mistakes as learning opportunities, set time limits for tasks, practice self-compassion, challenge all-or-nothing thinking, celebrate good enough, and remember perfection is impossible."
+  },
+  {
+    "id": "240",
+    "question": "What is active listening?",
+    "answer": "Active listening means fully concentrating on what's being said rather than just passively hearing. It involves paying attention, showing you're listening through body language, providing feedback, deferring judgment, and responding appropriately."
+  },
+  {
+    "id": "241",
+    "question": "How do I develop a growth mindset?",
+    "answer": "Embrace challenges as opportunities, view failures as learning experiences, focus on effort over innate ability, accept feedback graciously, celebrate others' success, replace 'I can't' with 'I can't yet', and believe abilities can be developed."
+  },
+  {
+    "id": "242",
+    "question": "What makes a good team player?",
+    "answer": "Communicating effectively, being reliable and accountable, supporting teammates, being flexible and adaptable, sharing credit, accepting different perspectives, staying positive, contributing ideas, and putting team goals above personal recognition."
+  },
+  {
+    "id": "243",
+    "question": "How do I handle rejection?",
+    "answer": "Allow yourself to feel disappointed, don't take it personally, view it as redirection not failure, ask for feedback if appropriate, learn from the experience, maintain perspective, keep trying, and remember everyone faces rejection."
+  },
+  {
+    "id": "244",
+    "question": "What is self-care and why is it important?",
+    "answer": "Self-care is deliberately taking care of your physical, mental, and emotional health. It's important because it reduces stress, prevents burnout, improves mood, boosts immune system, and enables you to better care for others."
+  },
+  {
+    "id": "245",
+    "question": "How do I break a bad habit?",
+    "answer": "Identify triggers that cause the habit, replace bad habits with good ones, change your environment, use implementation intentions, track your progress, be patient with setbacks, get accountability support, and address underlying reasons."
+  },
+  {
+    "id": "246",
+    "question": "What is the best way to give a compliment?",
+    "answer": "Be specific about what you appreciate, be genuine and sincere, focus on effort or character not just appearance, give compliments freely without expecting anything back, make it timely, and notice things others might overlook."
+  },
+  {
+    "id": "247",
+    "question": "How do I become more patient?",
+    "answer": "Practice mindfulness and deep breathing, identify what triggers impatience, change your perspective on waiting, focus on what you can control, practice gratitude, slow down intentionally, develop empathy, and recognize progress takes time."
+  },
+  {
+    "id": "248",
+    "question": "What should I do when I feel unmotivated?",
+    "answer": "Start with small easy tasks, revisit your goals and why they matter, take a break to recharge, change your environment, exercise or move your body, talk to someone inspiring, reward small progress, and be kind to yourself."
+  },
+  {
+    "id": "249",
+    "question": "How do I set healthy boundaries?",
+    "answer": "Know your limits and values, communicate clearly and directly, be firm but respectful, don't over-explain or apologize, start small, be consistent, expect some pushback, take time to respond to requests, and prioritize your well-being."
+  },
+  {
+    "id": "250",
+    "question": "What is the difference between hearing and listening?",
+    "answer": "Hearing is the physical process of sound entering your ears. Listening is actively paying attention, understanding, and remembering what's said. Hearing is passive and automatic, while listening requires effort and intention."
+  },
+  {
+    "id": "251",
+    "question": "How do I reduce screen time?",
+    "answer": "Set app time limits, turn off non-essential notifications, create phone-free zones and times, find alternative activities, keep phone out of bedroom, use grayscale mode, delete time-wasting apps, and track your usage to stay aware."
+  },
+  {
+    "id": "252",
+    "question": "What makes someone trustworthy?",
+    "answer": "Being honest and transparent, keeping promises and commitments, maintaining confidentiality, being consistent in words and actions, admitting mistakes, showing integrity, being reliable, demonstrating competence, and having genuine care for others."
+  },
+  {
+    "id": "253",
+    "question": "How do I improve my handwriting?",
+    "answer": "Practice regularly with proper grip, slow down when writing, maintain good posture, use lined paper, focus on letter consistency, do hand exercises, try different pens to find comfortable ones, and practice tricky letters separately."
+  },
+  {
+    "id": "254",
+    "question": "What is the best way to start a presentation?",
+    "answer": "Hook the audience with a story, surprising fact, or question, establish credibility, clearly state your main point, explain what they'll learn, connect to their interests, use humor appropriately, and show confidence and enthusiasm."
+  },
+  {
+    "id": "255",
+    "question": "How do I deal with change?",
+    "answer": "Accept that change is constant, focus on what you can control, maintain routines where possible, stay flexible and open-minded, seek support from others, view change as opportunity for growth, and give yourself time to adjust."
+  },
+  {
+    "id": "256",
+    "question": "What is the best way to decline an invitation politely?",
+    "answer": "Thank them for the invitation, give a brief honest reason if comfortable, suggest an alternative if interested, be firm but kind, don't over-explain, respond promptly, and avoid making excuses that sound fake."
+  },
+  {
+    "id": "257",
+    "question": "How do I stop worrying about what others think?",
+    "answer": "Focus on your own values and goals, remember most people are focused on themselves, practice self-acceptance, surround yourself with supportive people, limit social media, develop self-confidence, and realize you can't please everyone."
+  },
+  {
+    "id": "258",
+    "question": "What makes a good apology?",
+    "answer": "Taking full responsibility, being specific about what you did wrong, showing genuine remorse, not making excuses, explaining how you'll change, giving the other person space, following through on commitments, and not repeating the behavior."
+  },
+  {
+    "id": "259",
+    "question": "How do I become more independent?",
+    "answer": "Learn essential life skills, make your own decisions, develop financial literacy, solve problems yourself before asking for help, trust your judgment, take responsibility for mistakes, cultivate your own interests, and build self-reliance gradually."
+  },
+  {
+    "id": "260",
+    "question": "What is the difference between empathy and sympathy?",
+    "answer": "Empathy is understanding and sharing someone's feelings by putting yourself in their shoes. Sympathy is feeling compassion or pity for someone's situation from your own perspective. Empathy connects, while sympathy observes from distance."
+  },
+  {
+    "id": "261",
+    "question": "How do I make good small talk?",
+    "answer": "Ask open-ended questions, comment on shared situations, be genuinely curious, find common interests, listen more than you talk, share appropriate personal information, read the room, avoid controversial topics, and smile and be friendly."
+  },
+  {
+    "id": "262",
+    "question": "What should I do if I feel burned out?",
+    "answer": "Take time off if possible, identify what's causing burnout, set boundaries, prioritize sleep and nutrition, engage in activities you enjoy, talk to someone, reevaluate priorities, delegate tasks, and seek professional help if needed."
+  },
+  {
+    "id": "263",
+    "question": "How do I accept compliments gracefully?",
+    "answer": "Simply say thank you without deflecting or downplaying, make eye contact and smile, avoid self-deprecating responses, acknowledge the person's kindness, don't immediately give a compliment back, and accept it sincerely."
+  },
+  {
+    "id": "264",
+    "question": "What is the best way to ask for help?",
+    "answer": "Be specific about what you need, explain what you've already tried, choose the right person and time, be respectful of their time, show appreciation, be open to their suggestions, and offer to reciprocate when possible."
+  },
+  {
+    "id": "265",
+    "question": "How do I become more assertive?",
+    "answer": "Use 'I' statements to express needs, practice saying no, maintain confident body language, speak clearly and calmly, value your own opinions, set and maintain boundaries, prepare what to say beforehand, and start with small situations."
+  },
+  {
+    "id": "266",
+    "question": "What makes a good mentor?",
+    "answer": "Having relevant experience and knowledge, being a good listener, providing honest feedback, being supportive and encouraging, sharing both successes and failures, being accessible, respecting boundaries, and genuinely caring about mentee's growth."
+  },
+  {
+    "id": "267",
+    "question": "How do I practice gratitude daily?",
+    "answer": "Keep a gratitude journal, share appreciation with others, notice small positive things, reflect before bed on good moments, express thanks genuinely, focus on what you have not what you lack, and make it a consistent habit."
+  },
+  {
+    "id": "268",
+    "question": "What is the best way to handle interruptions while working?",
+    "answer": "Set specific focus times and communicate them, close your door or use headphones, batch similar interruptions together, politely redirect non-urgent matters, use do-not-disturb features, schedule office hours, and address root causes of frequent interruptions."
+  },
+  {
+    "id": "269",
+    "question": "How do I stay humble while being confident?",
+    "answer": "Acknowledge contributions from others, be open to learning, admit when you don't know something, celebrate others' successes, accept feedback graciously, stay curious, remember everyone has strengths, and focus on growth over proving yourself."
+  },
+  {
+    "id": "270",
+    "question": "What should I do when I disagree with someone?",
+    "answer": "Listen to understand their perspective, stay calm and respectful, use 'I' statements, focus on the issue not the person, find common ground, agree to disagree if needed, avoid being defensive, and keep an open mind."
+  },
+  {
+    "id": "271",
+    "question": "How do I recover from embarrassment?",
+    "answer": "Laugh at yourself if appropriate, remember everyone makes mistakes, realize people forget quickly, focus on the present not the past, learn from it if needed, practice self-compassion, and remember it's part of being human."
+  },
+  {
+    "id": "272",
+    "question": "What is the best way to show appreciation?",
+    "answer": "Be specific about what you appreciate, express it sincerely and promptly, write thank-you notes, acknowledge effort not just results, do it publicly when appropriate, show through actions not just words, and make it genuine."
+  },
+  {
+    "id": "273",
+    "question": "How do I become a better problem solver?",
+    "answer": "Define the problem clearly, gather relevant information, consider multiple solutions, think creatively, break complex problems into parts, learn from past experiences, collaborate with others, stay calm, and test solutions before full implementation."
+  },
+  {
+    "id": "274",
+    "question": "What makes someone a good friend?",
+    "answer": "Being trustworthy and loyal, listening without judgment, being there in good and bad times, celebrating successes, being honest even when difficult, respecting boundaries, making time for the friendship, and accepting each other's flaws."
+  },
+  {
+    "id": "275",
+    "question": "How do I handle impostor syndrome?",
+    "answer": "Recognize it's common and you're not alone, focus on facts not feelings, keep track of accomplishments, talk about your feelings, realize perfection is impossible, accept compliments, mentor others, and remember competence takes time."
+  },
+  {
+    "id": "276",
+    "question": "What is the difference between being nice and being kind?",
+    "answer": "Being nice is about being pleasant and polite to avoid conflict. Being kind is about genuine care and doing what's best for others, even if it's difficult. Nice focuses on appearance, kindness focuses on impact."
+  },
+  {
+    "id": "277",
+    "question": "How do I improve my willpower?",
+    "answer": "Start with small challenges, get enough sleep, manage stress, eat regular healthy meals, remove temptations from environment, practice mindfulness, focus on one goal at a time, and remember willpower is like a muscle."
+  },
+  {
+    "id": "278",
+    "question": "What should I do before making a big life decision?",
+    "answer": "Clarify your values and priorities, gather all relevant information, consider long-term consequences, talk to trusted people, sleep on it, visualize different outcomes, trust your intuition, and remember most decisions aren't permanent."
+  },
+  {
+    "id": "279",
+    "question": "How do I stay calm in stressful situations?",
+    "answer": "Take deep breaths, pause before reacting, focus on what you can control, maintain perspective, use positive self-talk, ground yourself in the present, practice regularly to build resilience, and remember stress is temporary."
+  },
+  {
+    "id": "280",
+    "question": "What is the best way to celebrate success?",
+    "answer": "Acknowledge the achievement fully, share it with people who supported you, reflect on what you learned, reward yourself appropriately, express gratitude, document the moment, use it as motivation for next goals, and enjoy the feeling."
+  },
+  {
+    "id": "281",
+    "question": "How do I become more creative?",
+    "answer": "Expose yourself to new experiences, question assumptions, brainstorm without judgment, combine unrelated ideas, take breaks to let ideas incubate, collaborate with diverse people, embrace failure, and practice regularly."
+  },
+  {
+    "id": "282",
+    "question": "What makes communication effective?",
+    "answer": "Clarity and conciseness, active listening, appropriate body language, empathy and understanding, two-way dialogue, choosing the right medium, timing, being respectful, and confirming understanding through feedback."
+  },
+  {
+    "id": "283",
+    "question": "How do I deal with peer pressure?",
+    "answer": "Know your values and stand firm, practice saying no, surround yourself with supportive friends, trust your instincts, suggest alternatives, be confident in your choices, walk away if needed, and remember true friends respect your decisions."
+  },
+  {
+    "id": "284",
+    "question": "What is the best way to learn from failure?",
+    "answer": "Reflect on what went wrong objectively, identify specific lessons, avoid blaming yourself or others excessively, adjust your approach, view it as feedback not final, share learnings with others, and apply insights to future attempts."
+  },
+  {
+    "id": "285",
+    "question": "How do I build resilience?",
+    "answer": "Develop strong relationships, maintain perspective during challenges, accept that change is part of life, take decisive actions, practice self-care, learn from past experiences, stay hopeful, and develop problem-solving skills."
+  },
+  {
+    "id": "286",
+    "question": "What is the difference between urgent and important?",
+    "answer": "Urgent tasks demand immediate attention but may not be important. Important tasks contribute to long-term goals and values. Many urgent things aren't important, and important things often aren't urgent. Prioritize important over merely urgent."
+  },
+  {
+    "id": "287",
+    "question": "How do I maintain work relationships when working remotely?",
+    "answer": "Schedule regular video calls, participate in virtual social events, communicate proactively, be responsive, show interest in colleagues' lives, use collaboration tools effectively, maintain boundaries, and make effort to stay connected."
+  },
+  {
+    "id": "288",
+    "question": "What should I do to prepare for retirement?",
+    "answer": "Start saving early, diversify investments, create a budget for retirement income, pay off debts, consider healthcare costs, plan activities and hobbies, maintain social connections, stay physically active, and consult financial advisors."
+  },
+  {
+    "id": "289",
+    "question": "How do I show respect to others?",
+    "answer": "Listen actively without interrupting, value their time, acknowledge their feelings and opinions, use polite language, respect boundaries, be punctual, avoid gossip, give credit where due, and treat everyone with dignity regardless of status."
+  },
+  {
+    "id": "290",
+    "question": "What is the best way to end a conversation politely?",
+    "answer": "Wait for a natural pause, express that you enjoyed talking, give a reason for leaving if appropriate, suggest future contact if desired, thank them for their time, use polite closing phrases, and leave with a smile."
+  },
+  {
+    "id": "291",
+    "question": "How do I become more adaptable?",
+    "answer": "Stay curious and open to learning, embrace change as opportunity, develop multiple skills, practice flexibility in thinking, learn from different perspectives, stay calm during uncertainty, focus on what you can control, and view challenges positively."
+  },
+  {
+    "id": "292",
+    "question": "What makes someone a good leader?",
+    "answer": "Having clear vision and communication, leading by example, empowering and developing others, making tough decisions, taking responsibility, showing integrity, being adaptable, listening actively, inspiring and motivating, and caring about team members."
+  },
+  {
+    "id": "293",
+    "question": "How do I practice mindfulness in daily life?",
+    "answer": "Focus on your breath regularly, eat meals without distractions, notice your surroundings during walks, do one thing at a time, pause before reacting, observe thoughts without judgment, practice gratitude, and bring attention to present moments."
+  },
+  {
+    "id": "294",
+    "question": "What should I do when I feel jealous?",
+    "answer": "Acknowledge the feeling without judgment, identify what's triggering it, focus on your own journey and accomplishments, practice gratitude for what you have, communicate feelings if appropriate, avoid comparison, and use it as motivation constructively."
+  },
+  {
+    "id": "295",
+    "question": "How do I maintain motivation for long-term goals?",
+    "answer": "Break goals into smaller milestones, track and celebrate progress, visualize success regularly, review your why, stay accountable to someone, adjust strategies when needed, focus on process not just outcome, and be patient with yourself."
+  },
+  {
+    "id": "296",
+    "question": "What is the best way to resolve conflicts?",
+    "answer": "Address issues early before they escalate, focus on the problem not the person, listen to understand all perspectives, find common ground, brainstorm solutions together, compromise when appropriate, and follow up to ensure resolution worked."
+  },
+  {
+    "id": "297",
+    "question": "How do I improve my self-discipline?",
+    "answer": "Start with small commitments, remove temptations, create clear routines, use implementation intentions, track progress, reward yourself for consistency, practice delayed gratification, understand your why, and build habits gradually."
+  },
+  {
+    "id": "298",
+    "question": "What makes someone charismatic?",
+    "answer": "Being genuinely interested in others, showing confidence without arrogance, using positive body language, listening actively, telling engaging stories, having passion and enthusiasm, being authentic, making others feel valued, and displaying warmth."
+  },
+  {
+    "id": "299",
+    "question": "How do I balance helping others with self-care?",
+    "answer": "Set clear boundaries on time and energy, prioritize your own well-being first, learn to say no when needed, delegate or share responsibilities, recharge regularly, avoid guilt about self-care, and remember you can't help others from an empty cup."
+  },
+  {
+    "id": "300",
+    "question": "What is the key to happiness?",
+    "answer": "While happiness varies by person, research suggests strong relationships, gratitude, helping others, pursuing meaningful goals, staying present, accepting yourself, maintaining health, finding purpose, and focusing on experiences over possessions contribute to lasting happiness."
   }
 ]
