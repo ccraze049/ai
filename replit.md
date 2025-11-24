@@ -6,6 +6,19 @@ BrainBox Agent is a self-learning, API-free AI chat application that stores and 
 
 The application features a conversational chat interface where users can ask questions, teach the AI new information, and improve existing knowledge entries. The system provides confidence indicators to show how certain the AI is about its responses.
 
+## Recent Changes
+
+**November 24, 2025**: Successfully generated and loaded a comprehensive 100-entry knowledge dataset covering diverse categories:
+- Technology & Web Development (HTML, CSS, JavaScript, React, Node.js, MongoDB, APIs, Git, npm)
+- Computer Science (algorithms, data structures, programming concepts, OOP)
+- Sciences (Physics, Chemistry, Biology, Earth Science)
+- Mathematics (geometry, algebra, formulas)
+- Internet & Networking (HTTP/HTTPS, Wi-Fi, IP addresses, VPNs, bandwidth, encryption)
+- Daily Life (study tips, productivity, health, troubleshooting)
+- AI/Machine Learning basics (neural networks, deep learning)
+
+All entries follow the standard JSON format with id, question, and answer fields. Answers are concise (2-4 lines), beginner-friendly, and written in simple English.
+
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.

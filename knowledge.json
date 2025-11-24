@@ -1,22 +1,502 @@
 [
   {
     "id": "1",
-    "question": "What is BrainBox Agent?",
-    "answer": "BrainBox Agent is a self-learning, API-free AI that uses its local database to answer and learn from conversations. I work completely offline without requiring any external API keys."
+    "question": "What is HTML?",
+    "answer": "HTML stands for HyperText Markup Language. It is the standard language used to create and structure content on web pages. HTML uses tags like <div>, <p>, and <h1> to define elements."
   },
   {
     "id": "2",
-    "question": "How does learning work?",
-    "answer": "When you ask me something I don't know, you can teach me by providing the correct answer. I save this to my knowledge base and will remember it for future conversations. You can also improve my existing answers to make them more accurate."
+    "question": "How do I center a div in CSS?",
+    "answer": "You can center a div using flexbox with display: flex, justify-content: center, and align-items: center on the parent element. Alternatively, use margin: 0 auto with a defined width for horizontal centering."
   },
   {
     "id": "3",
-    "question": "What makes BrainBox Agent different?",
-    "answer": "Unlike other AI assistants, I don't need internet connectivity or API keys. All my knowledge is stored locally in a JSON file, and I learn and improve through your interactions with me."
+    "question": "What is the difference between let and var in JavaScript?",
+    "answer": "let has block scope and cannot be redeclared in the same scope, while var has function scope and can be redeclared. let is the modern standard and prevents common programming errors."
   },
   {
-    "id": "acaa7c7b-8f6b-4e91-9b50-6b69a15498dc",
-    "question": "What is quantum computing?",
-    "answer": "Quantum computing uses quantum bits (qubits) that can exist in multiple states simultaneously, enabling parallel processing of information far beyond classical computers."
+    "id": "4",
+    "question": "What is Node.js?",
+    "answer": "Node.js is a JavaScript runtime built on Chrome's V8 engine that allows you to run JavaScript on the server side. It's commonly used for building web servers, APIs, and command-line tools."
+  },
+  {
+    "id": "5",
+    "question": "What is MongoDB?",
+    "answer": "MongoDB is a popular NoSQL database that stores data in flexible, JSON-like documents. Unlike traditional SQL databases, it doesn't require a fixed schema, making it easier to handle evolving data structures."
+  },
+  {
+    "id": "6",
+    "question": "What is React?",
+    "answer": "React is a JavaScript library for building user interfaces, developed by Facebook. It uses a component-based architecture and a virtual DOM to create fast, interactive web applications."
+  },
+  {
+    "id": "7",
+    "question": "What is the speed of light?",
+    "answer": "The speed of light in a vacuum is approximately 299,792 kilometers per second (186,282 miles per second). This is the fastest speed possible in the universe according to Einstein's theory of relativity."
+  },
+  {
+    "id": "8",
+    "question": "What is photosynthesis?",
+    "answer": "Photosynthesis is the process by which plants convert sunlight, water, and carbon dioxide into glucose (sugar) and oxygen. This process occurs primarily in the leaves and is essential for plant growth and life on Earth."
+  },
+  {
+    "id": "9",
+    "question": "What is the Pythagorean theorem?",
+    "answer": "The Pythagorean theorem states that in a right triangle, the square of the hypotenuse equals the sum of squares of the other two sides: a² + b² = c². It's fundamental in geometry and mathematics."
+  },
+  {
+    "id": "10",
+    "question": "How do I stay motivated while studying?",
+    "answer": "Break your study sessions into smaller chunks with breaks in between. Set clear, achievable goals and reward yourself when you reach them. Create a dedicated study space free from distractions."
+  },
+  {
+    "id": "11",
+    "question": "What is machine learning?",
+    "answer": "Machine learning is a branch of artificial intelligence where computers learn from data and improve their performance without being explicitly programmed. It uses algorithms to identify patterns and make predictions."
+  },
+  {
+    "id": "12",
+    "question": "Why is my phone battery draining so fast?",
+    "answer": "Common causes include background apps, high screen brightness, location services, and poor cellular signal. Check battery settings to identify power-hungry apps and disable features you don't need."
+  },
+  {
+    "id": "13",
+    "question": "What is Newton's first law of motion?",
+    "answer": "Newton's first law states that an object at rest stays at rest, and an object in motion stays in motion at constant velocity, unless acted upon by an external force. This is also called the law of inertia."
+  },
+  {
+    "id": "14",
+    "question": "What is DNA?",
+    "answer": "DNA (Deoxyribonucleic Acid) is a molecule that carries genetic information in all living organisms. It has a double helix structure and contains instructions for building and maintaining an organism."
+  },
+  {
+    "id": "15",
+    "question": "What is the difference between HTTP and HTTPS?",
+    "answer": "HTTPS is the secure version of HTTP. The 'S' stands for Secure and means all data sent between your browser and the website is encrypted. HTTPS protects your information from being intercepted by hackers."
+  },
+  {
+    "id": "16",
+    "question": "How do I clear my browser cache?",
+    "answer": "In most browsers, press Ctrl+Shift+Delete (or Cmd+Shift+Delete on Mac) to open the clear browsing data menu. Select the time range and check 'Cached images and files', then click Clear data."
+  },
+  {
+    "id": "17",
+    "question": "What is the water cycle?",
+    "answer": "The water cycle is the continuous movement of water on Earth through evaporation, condensation, precipitation, and collection. Water evaporates from oceans and lakes, forms clouds, falls as rain, and returns to water bodies."
+  },
+  {
+    "id": "18",
+    "question": "What is an IP address?",
+    "answer": "An IP address is a unique numerical label assigned to each device connected to a network. It works like a home address for your computer, allowing devices to find and communicate with each other on the internet."
+  },
+  {
+    "id": "19",
+    "question": "What is CSS?",
+    "answer": "CSS stands for Cascading Style Sheets. It's a styling language used to describe how HTML elements should be displayed on screen. CSS controls colors, fonts, layouts, spacing, and visual design of web pages."
+  },
+  {
+    "id": "20",
+    "question": "How do you calculate the area of a circle?",
+    "answer": "The area of a circle is calculated using the formula A = πr², where π (pi) is approximately 3.14159 and r is the radius of the circle. Simply square the radius and multiply by pi."
+  },
+  {
+    "id": "21",
+    "question": "What is gravity?",
+    "answer": "Gravity is a natural force that attracts objects with mass toward each other. On Earth, gravity pulls everything toward the center of the planet, which is why objects fall down when dropped."
+  },
+  {
+    "id": "22",
+    "question": "What are proteins?",
+    "answer": "Proteins are large molecules made of amino acids that perform essential functions in living organisms. They build and repair tissues, act as enzymes, transport substances, and support the immune system."
+  },
+  {
+    "id": "23",
+    "question": "What is an array in programming?",
+    "answer": "An array is a data structure that stores multiple values of the same type in a single variable. Elements are accessed using index numbers, starting from 0. Arrays are fundamental in all programming languages."
+  },
+  {
+    "id": "24",
+    "question": "What is Wi-Fi?",
+    "answer": "Wi-Fi is a wireless networking technology that allows devices to connect to the internet without cables. It uses radio waves to transmit data between your device and a wireless router or access point."
+  },
+  {
+    "id": "25",
+    "question": "How do I improve my memory?",
+    "answer": "Practice regular exercise, get enough sleep, eat brain-healthy foods like fish and nuts, and use memory techniques like visualization and association. Stay mentally active by learning new things and solving puzzles."
+  },
+  {
+    "id": "26",
+    "question": "What is the periodic table?",
+    "answer": "The periodic table is an organized chart of all known chemical elements arranged by atomic number, electron configuration, and recurring chemical properties. It helps predict element behaviors and relationships in chemistry."
+  },
+  {
+    "id": "27",
+    "question": "What is a function in JavaScript?",
+    "answer": "A function is a reusable block of code that performs a specific task. You define it once and can call it multiple times with different inputs. Functions help organize code and avoid repetition."
+  },
+  {
+    "id": "28",
+    "question": "What is cloud computing?",
+    "answer": "Cloud computing delivers computing services like storage, databases, and software over the internet instead of local servers. Popular examples include Google Drive, Dropbox, and Amazon Web Services (AWS)."
+  },
+  {
+    "id": "29",
+    "question": "What is the difference between RAM and ROM?",
+    "answer": "RAM (Random Access Memory) is temporary memory that stores data while your computer is running and clears when powered off. ROM (Read-Only Memory) is permanent memory that stores essential system instructions."
+  },
+  {
+    "id": "30",
+    "question": "How does the internet work?",
+    "answer": "The internet is a global network of interconnected computers that communicate using standardized protocols. Data travels through cables, routers, and servers, broken into small packets that are reassembled at their destination."
+  },
+  {
+    "id": "31",
+    "question": "What is mitosis?",
+    "answer": "Mitosis is a type of cell division where one cell divides into two identical daughter cells. It's how organisms grow and repair damaged tissues, ensuring each new cell has the same genetic information."
+  },
+  {
+    "id": "32",
+    "question": "What is the difference between mass and weight?",
+    "answer": "Mass is the amount of matter in an object and stays constant everywhere. Weight is the force of gravity acting on that mass and changes depending on location. Your mass is the same on Earth and the Moon, but weight differs."
+  },
+  {
+    "id": "33",
+    "question": "What is flexbox in CSS?",
+    "answer": "Flexbox is a CSS layout module that makes it easier to design flexible and responsive layouts. It allows you to align and distribute space among items in a container, even when their size is unknown or dynamic."
+  },
+  {
+    "id": "34",
+    "question": "What is an API?",
+    "answer": "API stands for Application Programming Interface. It's a set of rules that allows different software applications to communicate with each other. APIs enable apps to share data and functionality without exposing internal code."
+  },
+  {
+    "id": "35",
+    "question": "How do vaccines work?",
+    "answer": "Vaccines train your immune system to recognize and fight specific diseases by introducing a weakened or inactive form of the pathogen. This helps your body build immunity without getting sick from the actual disease."
+  },
+  {
+    "id": "36",
+    "question": "What is electricity?",
+    "answer": "Electricity is the flow of electrical charge, typically carried by electrons moving through a conductor like a wire. It's a form of energy we use to power devices, lights, and appliances in our daily lives."
+  },
+  {
+    "id": "37",
+    "question": "What is a loop in programming?",
+    "answer": "A loop is a programming structure that repeats a block of code multiple times until a specified condition is met. Common types include for loops, while loops, and do-while loops."
+  },
+  {
+    "id": "38",
+    "question": "What causes seasons on Earth?",
+    "answer": "Seasons are caused by Earth's tilted axis as it orbits the Sun. When the Northern Hemisphere tilts toward the Sun, it experiences summer while the Southern Hemisphere has winter, and vice versa."
+  },
+  {
+    "id": "39",
+    "question": "What is Git?",
+    "answer": "Git is a version control system that tracks changes in code over time. It allows developers to collaborate, save different versions of their work, and revert to previous states if needed. GitHub is a popular Git hosting platform."
+  },
+  {
+    "id": "40",
+    "question": "What is the difference between a virus and bacteria?",
+    "answer": "Bacteria are single-celled living organisms that can survive on their own, while viruses are non-living particles that need a host cell to reproduce. Antibiotics work against bacteria but not viruses."
+  },
+  {
+    "id": "41",
+    "question": "How do I fix a slow computer?",
+    "answer": "Delete unnecessary files, uninstall unused programs, disable startup programs, run disk cleanup, and scan for malware. Adding more RAM or switching to an SSD can also significantly improve performance."
+  },
+  {
+    "id": "42",
+    "question": "What is the difference between GET and POST requests?",
+    "answer": "GET requests retrieve data from a server and parameters are visible in the URL. POST requests send data to a server (like form submissions) with parameters hidden in the request body, making them more secure."
+  },
+  {
+    "id": "43",
+    "question": "What is photosynthesis equation?",
+    "answer": "The simplified equation is: 6CO₂ + 6H₂O + light energy → C₆H₁₂O₆ + 6O₂. This means carbon dioxide and water, using light energy, produce glucose and oxygen."
+  },
+  {
+    "id": "44",
+    "question": "What is responsive design?",
+    "answer": "Responsive design is an approach to web design that makes web pages render well on different devices and screen sizes. It uses flexible layouts, images, and CSS media queries to adapt content automatically."
+  },
+  {
+    "id": "45",
+    "question": "What is the difference between AC and DC current?",
+    "answer": "AC (Alternating Current) periodically reverses direction and is used in homes and buildings. DC (Direct Current) flows in one direction and is used in batteries and electronic devices."
+  },
+  {
+    "id": "46",
+    "question": "What is JSON?",
+    "answer": "JSON (JavaScript Object Notation) is a lightweight data format for storing and exchanging data. It's easy for humans to read and write, and easy for machines to parse and generate. It uses key-value pairs."
+  },
+  {
+    "id": "47",
+    "question": "How do I manage stress?",
+    "answer": "Practice deep breathing, exercise regularly, get adequate sleep, maintain a healthy diet, and engage in activities you enjoy. Talk to friends, family, or professionals when feeling overwhelmed."
+  },
+  {
+    "id": "48",
+    "question": "What is osmosis?",
+    "answer": "Osmosis is the movement of water molecules through a semi-permeable membrane from an area of lower solute concentration to higher solute concentration. It's crucial for how cells absorb water and nutrients."
+  },
+  {
+    "id": "49",
+    "question": "What is a database?",
+    "answer": "A database is an organized collection of structured data stored electronically. It allows for efficient storage, retrieval, and management of information. Common types include SQL databases like MySQL and NoSQL databases like MongoDB."
+  },
+  {
+    "id": "50",
+    "question": "What is the greenhouse effect?",
+    "answer": "The greenhouse effect is when certain gases in Earth's atmosphere trap heat from the Sun, warming the planet. While natural greenhouse effect is essential for life, excess greenhouse gases cause global warming."
+  },
+  {
+    "id": "51",
+    "question": "What is a variable in programming?",
+    "answer": "A variable is a named container that stores data values in a program. Think of it like a labeled box where you can put information and retrieve or change it later during program execution."
+  },
+  {
+    "id": "52",
+    "question": "What is the difference between <div> and <span> in HTML?",
+    "answer": "<div> is a block-level element that starts on a new line and takes full width available. <span> is an inline element that only takes up as much width as necessary and doesn't start a new line."
+  },
+  {
+    "id": "53",
+    "question": "What is evolution?",
+    "answer": "Evolution is the process by which species change over generations through natural selection. Organisms with traits better suited to their environment are more likely to survive and reproduce, passing those traits to offspring."
+  },
+  {
+    "id": "54",
+    "question": "How do I backup my phone data?",
+    "answer": "For iPhone, use iCloud backup in Settings. For Android, use Google Drive or Google One backup. Enable automatic backups and ensure you're connected to Wi-Fi. You can also backup to a computer manually."
+  },
+  {
+    "id": "55",
+    "question": "What is the quadratic formula?",
+    "answer": "The quadratic formula is x = [-b ± √(b² - 4ac)] / 2a. It's used to find solutions to quadratic equations in the form ax² + bx + c = 0."
+  },
+  {
+    "id": "56",
+    "question": "What is encryption?",
+    "answer": "Encryption is the process of converting readable data into coded form to prevent unauthorized access. Only someone with the correct decryption key can convert it back to readable form. It's essential for online security."
+  },
+  {
+    "id": "57",
+    "question": "What is a neural network?",
+    "answer": "A neural network is a machine learning model inspired by the human brain. It consists of interconnected nodes (neurons) organized in layers that process and learn from data to recognize patterns and make predictions."
+  },
+  {
+    "id": "58",
+    "question": "What causes thunder and lightning?",
+    "answer": "Lightning is a giant electrical discharge between clouds or between clouds and ground, caused by ice particle collisions in storm clouds. Thunder is the sound created by lightning rapidly heating and expanding air."
+  },
+  {
+    "id": "59",
+    "question": "What is async/await in JavaScript?",
+    "answer": "Async/await is a syntax for handling asynchronous operations in JavaScript. It makes asynchronous code look and behave more like synchronous code, making it easier to read and write than traditional callbacks or promises."
+  },
+  {
+    "id": "60",
+    "question": "What is the difference between atomic number and atomic mass?",
+    "answer": "Atomic number is the number of protons in an atom's nucleus and determines the element. Atomic mass is the total number of protons and neutrons, representing the atom's weight."
+  },
+  {
+    "id": "61",
+    "question": "How do I create a strong password?",
+    "answer": "Use at least 12 characters with a mix of uppercase, lowercase, numbers, and symbols. Avoid common words or personal information. Use a unique password for each account and consider using a password manager."
+  },
+  {
+    "id": "62",
+    "question": "What is Object-Oriented Programming?",
+    "answer": "OOP is a programming paradigm based on objects that contain data (properties) and code (methods). Key concepts include encapsulation, inheritance, polymorphism, and abstraction. Popular OOP languages include Java, Python, and C++."
+  },
+  {
+    "id": "63",
+    "question": "What is the digestive system?",
+    "answer": "The digestive system breaks down food into nutrients your body can absorb and use for energy, growth, and repair. It includes the mouth, esophagus, stomach, intestines, liver, and other organs working together."
+  },
+  {
+    "id": "64",
+    "question": "What is a cookie in web browsing?",
+    "answer": "A cookie is a small text file stored on your computer by websites you visit. Cookies remember your preferences, login information, and browsing activity to personalize your experience and track user behavior."
+  },
+  {
+    "id": "65",
+    "question": "What is the difference between weather and climate?",
+    "answer": "Weather is the short-term atmospheric condition at a specific time and place (like today's temperature and rain). Climate is the average weather pattern in a region over a long period, typically 30 years or more."
+  },
+  {
+    "id": "66",
+    "question": "What is CSS Grid?",
+    "answer": "CSS Grid is a two-dimensional layout system for creating complex web layouts. Unlike Flexbox which is one-dimensional, Grid allows you to control both rows and columns simultaneously for more sophisticated designs."
+  },
+  {
+    "id": "67",
+    "question": "What is npm?",
+    "answer": "npm (Node Package Manager) is a package manager for JavaScript that helps developers share and reuse code. It hosts thousands of free packages and tools that you can install and use in your projects with simple commands."
+  },
+  {
+    "id": "68",
+    "question": "What are carbohydrates?",
+    "answer": "Carbohydrates are organic compounds that serve as a primary energy source for the body. They're found in foods like bread, rice, fruits, and vegetables. The body breaks them down into glucose for energy."
+  },
+  {
+    "id": "69",
+    "question": "What is the scientific method?",
+    "answer": "The scientific method is a systematic approach to research involving observation, forming a hypothesis, conducting experiments, analyzing data, and drawing conclusions. It's designed to minimize bias and ensure reliable results."
+  },
+  {
+    "id": "70",
+    "question": "How do I improve my typing speed?",
+    "answer": "Practice regularly using touch typing (without looking at keys), use online typing tutors, focus on accuracy before speed, maintain proper posture, and practice with real texts rather than random letters."
+  },
+  {
+    "id": "71",
+    "question": "What is a VPN?",
+    "answer": "A VPN (Virtual Private Network) creates a secure, encrypted connection between your device and the internet. It hides your IP address and protects your privacy, especially useful on public Wi-Fi networks."
+  },
+  {
+    "id": "72",
+    "question": "What is the difference between margin and padding in CSS?",
+    "answer": "Margin is the space outside an element's border, creating distance between elements. Padding is the space inside an element's border, creating distance between the content and the border."
+  },
+  {
+    "id": "73",
+    "question": "What is kinetic energy?",
+    "answer": "Kinetic energy is the energy an object possesses due to its motion. The formula is KE = ½mv², where m is mass and v is velocity. The faster and heavier an object, the more kinetic energy it has."
+  },
+  {
+    "id": "74",
+    "question": "What is the circulatory system?",
+    "answer": "The circulatory system transports blood, oxygen, nutrients, and hormones throughout the body. It consists of the heart, blood vessels (arteries, veins, capillaries), and blood working together to keep cells alive."
+  },
+  {
+    "id": "75",
+    "question": "What is a compiler?",
+    "answer": "A compiler is a program that translates code written in a high-level programming language into machine code that computers can execute. Examples include GCC for C/C++ and javac for Java."
+  },
+  {
+    "id": "76",
+    "question": "How do I fix my website loading slowly?",
+    "answer": "Optimize images, minify CSS and JavaScript, enable browser caching, use a Content Delivery Network (CDN), reduce HTTP requests, and compress files. Also check your hosting server performance."
+  },
+  {
+    "id": "77",
+    "question": "What is the difference between accuracy and precision?",
+    "answer": "Accuracy is how close a measurement is to the true value. Precision is how consistent repeated measurements are with each other. You can be precise but not accurate, or accurate but not precise."
+  },
+  {
+    "id": "78",
+    "question": "What is React props?",
+    "answer": "Props (properties) are arguments passed from a parent component to child components in React. They allow data to flow down the component tree and are read-only, meaning child components cannot modify them."
+  },
+  {
+    "id": "79",
+    "question": "What is an ecosystem?",
+    "answer": "An ecosystem is a community of living organisms interacting with each other and their physical environment. It includes plants, animals, microorganisms, soil, water, air, and sunlight all working together."
+  },
+  {
+    "id": "80",
+    "question": "What is binary code?",
+    "answer": "Binary code is a system of representing data using only two digits: 0 and 1. Computers use binary because their circuits have two states: off (0) and on (1). All computer data is ultimately stored and processed in binary."
+  },
+  {
+    "id": "81",
+    "question": "How do magnets work?",
+    "answer": "Magnets work due to the alignment of electrons in atoms creating magnetic fields. Like poles (north-north or south-south) repel each other, while opposite poles (north-south) attract. This is due to magnetic force."
+  },
+  {
+    "id": "82",
+    "question": "What is useState in React?",
+    "answer": "useState is a React Hook that lets you add state to functional components. It returns an array with the current state value and a function to update it. Example: const [count, setCount] = useState(0)."
+  },
+  {
+    "id": "83",
+    "question": "What is the difference between renewable and non-renewable energy?",
+    "answer": "Renewable energy comes from sources that naturally replenish like solar, wind, and water. Non-renewable energy comes from finite sources like coal, oil, and natural gas that will eventually run out."
+  },
+  {
+    "id": "84",
+    "question": "What is bandwidth?",
+    "answer": "Bandwidth is the maximum amount of data that can be transmitted over an internet connection in a given time, usually measured in megabits per second (Mbps). Higher bandwidth means faster internet speeds."
+  },
+  {
+    "id": "85",
+    "question": "How does soap clean?",
+    "answer": "Soap molecules have one end that attracts water and another that attracts oil and dirt. When you wash, soap surrounds dirt particles, allowing water to wash them away. This process is called emulsification."
+  },
+  {
+    "id": "86",
+    "question": "What is a promise in JavaScript?",
+    "answer": "A Promise is an object representing the eventual completion or failure of an asynchronous operation. It has three states: pending, fulfilled, or rejected. Promises help manage asynchronous code more elegantly than callbacks."
+  },
+  {
+    "id": "87",
+    "question": "What is the water formula?",
+    "answer": "Water's chemical formula is H₂O, meaning each water molecule consists of two hydrogen atoms bonded to one oxygen atom. This simple molecule is essential for all known forms of life."
+  },
+  {
+    "id": "88",
+    "question": "How do I improve concentration while studying?",
+    "answer": "Remove distractions, use the Pomodoro technique (25-minute focused sessions with breaks), study in a quiet space, stay hydrated, get enough sleep, and study the most challenging subjects when your energy is highest."
+  },
+  {
+    "id": "89",
+    "question": "What is the difference between class and id in HTML?",
+    "answer": "A class can be applied to multiple elements and is selected in CSS with a dot (.). An id should be unique to one element and is selected with a hash (#). Use classes for styling groups and ids for unique elements."
+  },
+  {
+    "id": "90",
+    "question": "What is entropy?",
+    "answer": "Entropy is a measure of disorder or randomness in a system. In thermodynamics, it tends to increase over time, meaning systems naturally move from ordered to disordered states. It's related to energy dispersal."
+  },
+  {
+    "id": "91",
+    "question": "What is a firewall?",
+    "answer": "A firewall is a security system that monitors and controls incoming and outgoing network traffic based on predetermined rules. It acts as a barrier between a trusted internal network and untrusted external networks like the internet."
+  },
+  {
+    "id": "92",
+    "question": "What is Express.js?",
+    "answer": "Express.js is a minimal and flexible Node.js web application framework. It provides a robust set of features for building web applications and APIs, handling routing, middleware, and HTTP requests easily."
+  },
+  {
+    "id": "93",
+    "question": "What are vitamins?",
+    "answer": "Vitamins are essential organic compounds that our bodies need in small amounts for normal growth and function. They're obtained from food and include types like A, B, C, D, E, and K, each with specific roles."
+  },
+  {
+    "id": "94",
+    "question": "What is the difference between 4G and 5G?",
+    "answer": "5G is the fifth generation of cellular network technology, offering significantly faster speeds, lower latency, and greater capacity than 4G. 5G enables faster downloads, better streaming, and supports more connected devices."
+  },
+  {
+    "id": "95",
+    "question": "What is an algorithm?",
+    "answer": "An algorithm is a step-by-step procedure or set of rules for solving a problem or completing a task. In computer science, algorithms are the foundation of programming and can range from simple to highly complex."
+  },
+  {
+    "id": "96",
+    "question": "What causes earthquakes?",
+    "answer": "Earthquakes are caused by the sudden release of energy in the Earth's crust, usually due to the movement of tectonic plates. When plates slide past, collide, or separate, the built-up stress releases as seismic waves."
+  },
+  {
+    "id": "97",
+    "question": "How do I reset my router?",
+    "answer": "Locate the small reset button on your router (usually on the back), press and hold it for 10-30 seconds using a paperclip. The lights will blink and restart. This returns settings to factory defaults."
+  },
+  {
+    "id": "98",
+    "question": "What is the difference between deep learning and machine learning?",
+    "answer": "Machine learning is a broad field where algorithms learn from data. Deep learning is a subset of machine learning using neural networks with multiple layers. Deep learning can automatically discover features, while traditional ML often requires manual feature engineering."
+  },
+  {
+    "id": "99",
+    "question": "What is the law of conservation of energy?",
+    "answer": "The law states that energy cannot be created or destroyed, only transformed from one form to another. The total amount of energy in a closed system remains constant over time."
+  },
+  {
+    "id": "100",
+    "question": "What is semantic HTML?",
+    "answer": "Semantic HTML uses tags that clearly describe their meaning and content, like <header>, <nav>, <article>, and <footer> instead of just <div>. This improves accessibility, SEO, and code readability."
   }
 ]
