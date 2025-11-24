@@ -185,8 +185,8 @@ export async function processQuery(
   // Normal query processing - search knowledge base
   const bestMatch = await getBestMatch(userQuery);
 
-  if (!bestMatch || bestMatch.relevance === 'low') {
-    // No good answer found
+  if (!bestMatch) {
+    // No answer found
     return {
       answer: getNoKnowledgeResponse(userQuery),
       confidence: 'none',

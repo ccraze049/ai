@@ -117,7 +117,7 @@ export async function searchKnowledge(
  * Get best matching entry for a query
  */
 export async function getBestMatch(query: string): Promise<SearchResult | null> {
-  const results = await searchKnowledge(query, { limit: 1, minScore: 0.5 });
+  const results = await searchKnowledge(query, { limit: 1, minScore: 0.1 });
   return results.length > 0 ? results[0] : null;
 }
 
