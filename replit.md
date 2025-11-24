@@ -8,7 +8,15 @@ The application features a conversational chat interface where users can ask que
 
 ## Recent Changes
 
-**November 24, 2025**: Successfully generated and loaded a comprehensive 100-entry knowledge dataset covering diverse categories:
+**November 24, 2025 (Latest)**: Expanded knowledge base to **200 total entries** by adding 100 additional unique questions and answers covering:
+- Advanced programming topics (TypeScript, Redux, SQL, REST APIs, debugging, refactoring)
+- Extended science coverage (Newton's laws, meiosis, immune/nervous/muscular systems, homeostasis)
+- Additional chemistry concepts (acids, bases, catalysts, oxidation, chemical bonds)
+- More web development (DOM, responsive design, CSS animation, box model)
+- Life skills (time management, goal setting, public speaking, language learning)
+- Health & safety (antibiotics, sunscreen, recycling, stress management)
+
+**November 24, 2025 (Initial)**: Successfully generated and loaded a comprehensive 100-entry knowledge dataset covering diverse categories:
 - Technology & Web Development (HTML, CSS, JavaScript, React, Node.js, MongoDB, APIs, Git, npm)
 - Computer Science (algorithms, data structures, programming concepts, OOP)
 - Sciences (Physics, Chemistry, Biology, Earth Science)

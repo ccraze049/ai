@@ -498,5 +498,505 @@
     "id": "100",
     "question": "What is semantic HTML?",
     "answer": "Semantic HTML uses tags that clearly describe their meaning and content, like <header>, <nav>, <article>, and <footer> instead of just <div>. This improves accessibility, SEO, and code readability."
+  },
+  {
+    "id": "101",
+    "question": "What is TypeScript?",
+    "answer": "TypeScript is a programming language built on JavaScript that adds static typing. It helps catch errors during development, provides better code documentation, and improves IDE support with auto-completion and type checking."
+  },
+  {
+    "id": "102",
+    "question": "What is the periodic table organized by?",
+    "answer": "The periodic table is organized by increasing atomic number (number of protons). Elements are arranged in rows called periods and columns called groups based on similar chemical properties and electron configurations."
+  },
+  {
+    "id": "103",
+    "question": "How do I take better notes in class?",
+    "answer": "Use the Cornell method with main notes, cues, and summary sections. Write in your own words, use abbreviations, highlight key concepts, and review notes within 24 hours to reinforce learning."
+  },
+  {
+    "id": "104",
+    "question": "What is SQL?",
+    "answer": "SQL (Structured Query Language) is a programming language used to manage and manipulate data in relational databases. It allows you to create, read, update, and delete data using commands like SELECT, INSERT, UPDATE, and DELETE."
+  },
+  {
+    "id": "105",
+    "question": "What is Bluetooth?",
+    "answer": "Bluetooth is a wireless technology for exchanging data over short distances using radio waves. It's commonly used for connecting devices like headphones, speakers, keyboards, and smartphones without cables."
+  },
+  {
+    "id": "106",
+    "question": "What is Newton's second law of motion?",
+    "answer": "Newton's second law states that force equals mass times acceleration (F = ma). The greater the mass of an object, the more force needed to accelerate it. This law explains how forces affect motion."
+  },
+  {
+    "id": "107",
+    "question": "What is the immune system?",
+    "answer": "The immune system is your body's defense network against infections and diseases. It includes white blood cells, antibodies, lymph nodes, and organs like the spleen that work together to identify and destroy harmful invaders."
+  },
+  {
+    "id": "108",
+    "question": "What is the difference between frontend and backend?",
+    "answer": "Frontend is what users see and interact with in a website or app (HTML, CSS, JavaScript). Backend is the server-side that handles data, logic, and databases behind the scenes (Node.js, Python, databases)."
+  },
+  {
+    "id": "109",
+    "question": "What is a hashtag?",
+    "answer": "A hashtag is a word or phrase preceded by the # symbol used on social media to categorize content and make it searchable. Clicking a hashtag shows all posts using that same tag."
+  },
+  {
+    "id": "110",
+    "question": "What is the formula for calculating speed?",
+    "answer": "Speed is calculated by dividing distance by time: Speed = Distance ÷ Time. For example, if you travel 100 kilometers in 2 hours, your speed is 50 km/h."
+  },
+  {
+    "id": "111",
+    "question": "What is meiosis?",
+    "answer": "Meiosis is a type of cell division that produces four sex cells (gametes) with half the normal number of chromosomes. It's essential for sexual reproduction and creates genetic diversity through crossing over and independent assortment."
+  },
+  {
+    "id": "112",
+    "question": "How do I protect my computer from viruses?",
+    "answer": "Install reputable antivirus software and keep it updated, don't click suspicious links or download unknown files, keep your operating system and software updated, and be cautious with email attachments."
+  },
+  {
+    "id": "113",
+    "question": "What is Redux?",
+    "answer": "Redux is a state management library commonly used with React. It provides a centralized store for application state, making it easier to manage and debug complex applications with predictable state updates."
+  },
+  {
+    "id": "114",
+    "question": "What is the difference between weather forecast and climate prediction?",
+    "answer": "Weather forecasting predicts short-term atmospheric conditions (days to weeks ahead). Climate prediction examines long-term trends and patterns (years to decades). Weather changes daily, while climate represents averages over time."
+  },
+  {
+    "id": "115",
+    "question": "What is refactoring in programming?",
+    "answer": "Refactoring is restructuring existing code to improve its quality and readability without changing its external behavior. It makes code cleaner, more maintainable, and easier to understand while preserving functionality."
+  },
+  {
+    "id": "116",
+    "question": "What causes the Moon's phases?",
+    "answer": "The Moon's phases are caused by its orbit around Earth and the changing angles of sunlight hitting it. We see different portions of the illuminated half as the Moon moves, creating phases from new moon to full moon."
+  },
+  {
+    "id": "117",
+    "question": "What is RAM used for?",
+    "answer": "RAM (Random Access Memory) temporarily stores data and programs currently in use by your computer. More RAM allows you to run more programs simultaneously and improves overall system performance and multitasking ability."
+  },
+  {
+    "id": "118",
+    "question": "How do I overcome procrastination?",
+    "answer": "Break tasks into smaller steps, use the 2-minute rule (if it takes less than 2 minutes, do it now), eliminate distractions, set deadlines, and reward yourself for completing tasks. Start with the easiest task to build momentum."
+  },
+  {
+    "id": "119",
+    "question": "What is CSS specificity?",
+    "answer": "CSS specificity determines which styles apply when multiple rules target the same element. Inline styles have highest priority, followed by IDs, classes, and element selectors. More specific selectors override less specific ones."
+  },
+  {
+    "id": "120",
+    "question": "What is the respiratory system?",
+    "answer": "The respiratory system brings oxygen into your body and removes carbon dioxide. It includes the nose, trachea, bronchi, and lungs. Breathing in delivers oxygen to blood, while breathing out expels waste gases."
+  },
+  {
+    "id": "121",
+    "question": "What is a URL?",
+    "answer": "URL (Uniform Resource Locator) is the address used to access resources on the internet. It includes the protocol (http/https), domain name (google.com), and optional path. It's basically a web address."
+  },
+  {
+    "id": "122",
+    "question": "What is potential energy?",
+    "answer": "Potential energy is stored energy an object has due to its position or state. Common examples include gravitational potential energy (height) and elastic potential energy (compressed springs). Formula: PE = mgh."
+  },
+  {
+    "id": "123",
+    "question": "What is debugging?",
+    "answer": "Debugging is the process of finding and fixing errors (bugs) in code. It involves testing, using debugging tools, reading error messages, and systematically identifying where and why the code isn't working as expected."
+  },
+  {
+    "id": "124",
+    "question": "How does sunscreen work?",
+    "answer": "Sunscreen contains chemicals that absorb or reflect UV radiation from the Sun. Physical sunscreens (zinc oxide, titanium dioxide) reflect UV rays like a mirror, while chemical sunscreens absorb UV energy and convert it to heat."
+  },
+  {
+    "id": "125",
+    "question": "What is the DOM in web development?",
+    "answer": "DOM (Document Object Model) is a programming interface that represents an HTML document as a tree structure. JavaScript can manipulate the DOM to dynamically change content, structure, and styles of web pages."
+  },
+  {
+    "id": "126",
+    "question": "What is an acid?",
+    "answer": "An acid is a substance that donates hydrogen ions (H⁺) in a solution and has a pH less than 7. Acids taste sour, turn blue litmus paper red, and can be corrosive. Examples include vinegar, lemon juice, and hydrochloric acid."
+  },
+  {
+    "id": "127",
+    "question": "What is version control?",
+    "answer": "Version control is a system that tracks changes to files over time, allowing you to recall specific versions later. Git is the most popular version control system, letting developers collaborate and maintain project history."
+  },
+  {
+    "id": "128",
+    "question": "How do I improve my reading speed?",
+    "answer": "Minimize subvocalization (reading aloud in your mind), use a pointer to guide your eyes, read in chunks rather than word-by-word, practice regularly, and preview the text structure before deep reading."
+  },
+  {
+    "id": "129",
+    "question": "What is localhost?",
+    "answer": "Localhost refers to your own computer when accessed as a server. The IP address 127.0.0.1 points to localhost, allowing you to test websites and applications on your machine before deploying them to the internet."
+  },
+  {
+    "id": "130",
+    "question": "What is evaporation?",
+    "answer": "Evaporation is when a liquid turns into gas at temperatures below boiling point. It occurs at the surface of the liquid when molecules gain enough energy to escape. It's part of the water cycle."
+  },
+  {
+    "id": "131",
+    "question": "What is a Boolean in programming?",
+    "answer": "A Boolean is a data type with only two possible values: true or false. It's used for logical operations, conditional statements (if/else), and representing yes/no or on/off states in programs."
+  },
+  {
+    "id": "132",
+    "question": "What is a base in chemistry?",
+    "answer": "A base is a substance that accepts hydrogen ions (H⁺) or donates hydroxide ions (OH⁻) and has a pH greater than 7. Bases feel slippery, taste bitter, and turn red litmus paper blue. Examples include soap and baking soda."
+  },
+  {
+    "id": "133",
+    "question": "How do I fix WiFi connection problems?",
+    "answer": "Restart your router and device, move closer to the router, check if other devices can connect, forget and reconnect to the network, update network drivers, or reset network settings. Check if service provider has outages."
+  },
+  {
+    "id": "134",
+    "question": "What is CSS animation?",
+    "answer": "CSS animation allows you to animate HTML elements without JavaScript. You define keyframes specifying styles at various points, then apply animation properties like duration, timing function, and iteration count to create smooth visual effects."
+  },
+  {
+    "id": "135",
+    "question": "What is the nervous system?",
+    "answer": "The nervous system is your body's command center, controlling all activities. It includes the brain, spinal cord, and nerves. It receives sensory information, processes it, and sends signals to muscles and organs to respond."
+  },
+  {
+    "id": "136",
+    "question": "What is cloud storage?",
+    "answer": "Cloud storage saves your files on remote servers accessed via the internet instead of your local hard drive. Services like Google Drive, iCloud, and Dropbox let you access files from any device with internet connectivity."
+  },
+  {
+    "id": "137",
+    "question": "What is friction?",
+    "answer": "Friction is a force that opposes motion between two surfaces in contact. It converts kinetic energy into heat and slows moving objects. While friction can be useful (brakes, walking), it can also cause energy loss and wear."
+  },
+  {
+    "id": "138",
+    "question": "What is npm install?",
+    "answer": "npm install is a command that downloads and installs packages listed in package.json along with their dependencies. It creates a node_modules folder containing all the code libraries your project needs to run."
+  },
+  {
+    "id": "139",
+    "question": "How do plants reproduce?",
+    "answer": "Plants reproduce sexually through flowers producing seeds, or asexually through vegetative methods like runners, bulbs, or cuttings. Sexual reproduction involves pollination, fertilization, and seed formation, while asexual creates identical copies."
+  },
+  {
+    "id": "140",
+    "question": "What is a pixel?",
+    "answer": "A pixel (picture element) is the smallest unit of a digital image or display. Screens are made of millions of pixels, each showing a single color. Higher pixel count (resolution) means sharper, more detailed images."
+  },
+  {
+    "id": "141",
+    "question": "What is the difference between weather and temperature?",
+    "answer": "Temperature is one measurement of how hot or cold the air is. Weather includes temperature plus other conditions like humidity, wind, clouds, precipitation, and atmospheric pressure. Temperature is just one component of weather."
+  },
+  {
+    "id": "142",
+    "question": "What is useEffect in React?",
+    "answer": "useEffect is a React Hook for handling side effects like data fetching, subscriptions, or manual DOM changes. It runs after rendering and can clean up when the component unmounts or before re-running the effect."
+  },
+  {
+    "id": "143",
+    "question": "What is the skeletal system?",
+    "answer": "The skeletal system is the framework of bones and cartilage that supports and protects your body. Adults have 206 bones that provide structure, protect organs, enable movement, store minerals, and produce blood cells in bone marrow."
+  },
+  {
+    "id": "144",
+    "question": "How do I create a strong resume?",
+    "answer": "Use clear formatting, include contact information and summary, list relevant experience with achievements and metrics, highlight key skills, keep it to 1-2 pages, use action verbs, and customize it for each job application."
+  },
+  {
+    "id": "145",
+    "question": "What is a namespace in programming?",
+    "answer": "A namespace is a container that holds identifiers (variables, functions, classes) to avoid naming conflicts. It organizes code by grouping related items together and preventing name collisions when using multiple libraries or modules."
+  },
+  {
+    "id": "146",
+    "question": "What is density?",
+    "answer": "Density is the amount of mass in a given volume, calculated as Density = Mass ÷ Volume. Objects with higher density sink in water, while less dense objects float. It explains why ice floats and rocks sink."
+  },
+  {
+    "id": "147",
+    "question": "What is SSH?",
+    "answer": "SSH (Secure Shell) is a network protocol for secure remote access to computers over an unsecured network. It encrypts all data, allowing safe command execution, file transfers, and system administration on remote servers."
+  },
+  {
+    "id": "148",
+    "question": "What is condensation?",
+    "answer": "Condensation is when gas turns into liquid as it cools. Water vapor in the air condenses into droplets when it touches cold surfaces, forming dew, fog, or clouds. It's the opposite of evaporation."
+  },
+  {
+    "id": "149",
+    "question": "What is async in JavaScript?",
+    "answer": "The async keyword declares an asynchronous function that returns a Promise. It allows using await inside to pause execution until a Promise resolves, making asynchronous code look and behave more like synchronous code."
+  },
+  {
+    "id": "150",
+    "question": "How does the human eye work?",
+    "answer": "Light enters through the cornea and pupil, the lens focuses it onto the retina at the back of the eye. Photoreceptor cells (rods and cones) convert light into electrical signals sent via the optic nerve to the brain."
+  },
+  {
+    "id": "151",
+    "question": "What is a variable scope in programming?",
+    "answer": "Variable scope determines where in your code a variable can be accessed. Global scope variables are available everywhere, while local scope variables only exist within their function or block. Scope prevents naming conflicts."
+  },
+  {
+    "id": "152",
+    "question": "What is a volcano?",
+    "answer": "A volcano is an opening in Earth's crust where molten rock (magma), ash, and gases escape from below the surface. Eruptions occur when pressure builds up, forcing magma upward. Volcanoes form at tectonic plate boundaries."
+  },
+  {
+    "id": "153",
+    "question": "How do I prepare for an exam?",
+    "answer": "Start studying early, create a study schedule, review notes and materials regularly, practice with past papers, get adequate sleep, eat healthy, form study groups, teach concepts to others, and stay calm and confident."
+  },
+  {
+    "id": "154",
+    "question": "What is GitHub?",
+    "answer": "GitHub is a web-based platform for version control and collaboration using Git. It allows developers to store code, track changes, collaborate on projects, review code, and manage software development workflows through repositories."
+  },
+  {
+    "id": "155",
+    "question": "What is the difference between element and compound?",
+    "answer": "An element is a pure substance made of only one type of atom (like oxygen, gold, carbon). A compound is made of two or more different elements chemically bonded together (like water H₂O, salt NaCl)."
+  },
+  {
+    "id": "156",
+    "question": "What is SSL certificate?",
+    "answer": "An SSL certificate is a digital certificate that authenticates a website's identity and enables encrypted HTTPS connections. It protects sensitive data during transmission and shows a padlock icon in browsers, building user trust."
+  },
+  {
+    "id": "157",
+    "question": "What is Newton's third law of motion?",
+    "answer": "Newton's third law states that for every action, there's an equal and opposite reaction. When you push on an object, it pushes back with equal force. This explains how rockets work and why we recoil when jumping."
+  },
+  {
+    "id": "158",
+    "question": "What is destructuring in JavaScript?",
+    "answer": "Destructuring is a syntax for extracting values from arrays or properties from objects into distinct variables. It makes code cleaner and more readable. Example: const {name, age} = person instead of person.name and person.age."
+  },
+  {
+    "id": "159",
+    "question": "How do antibiotics work?",
+    "answer": "Antibiotics kill or stop bacteria from multiplying by targeting specific bacterial processes like cell wall formation or protein synthesis. They don't work on viruses. Overuse can lead to antibiotic-resistant bacteria, so use them as prescribed."
+  },
+  {
+    "id": "160",
+    "question": "What is responsive web design?",
+    "answer": "Responsive web design creates websites that adapt to different screen sizes and devices automatically. It uses flexible grids, fluid images, and CSS media queries to ensure optimal viewing experience on phones, tablets, and desktops."
+  },
+  {
+    "id": "161",
+    "question": "What is the difference between ionic and covalent bonds?",
+    "answer": "Ionic bonds form when one atom transfers electrons to another, creating charged ions that attract each other (like in salt). Covalent bonds form when atoms share electrons equally or unequally (like in water)."
+  },
+  {
+    "id": "162",
+    "question": "How do I set goals effectively?",
+    "answer": "Use SMART criteria: Specific, Measurable, Achievable, Relevant, and Time-bound. Write goals down, break them into smaller milestones, track progress regularly, stay flexible, and celebrate achievements along the way."
+  },
+  {
+    "id": "163",
+    "question": "What is a REST API?",
+    "answer": "REST (Representational State Transfer) API is a web service architecture that uses HTTP methods (GET, POST, PUT, DELETE) to perform operations on resources. It's stateless, scalable, and commonly used for web and mobile applications."
+  },
+  {
+    "id": "164",
+    "question": "What is the endocrine system?",
+    "answer": "The endocrine system produces and regulates hormones that control body functions like growth, metabolism, reproduction, and mood. It includes glands like the thyroid, pancreas, and pituitary that release hormones into the bloodstream."
+  },
+  {
+    "id": "165",
+    "question": "What is malware?",
+    "answer": "Malware (malicious software) is any program designed to harm computers, steal data, or disrupt operations. Types include viruses, worms, trojans, ransomware, and spyware. Protect yourself with antivirus software and safe browsing habits."
+  },
+  {
+    "id": "166",
+    "question": "What is buoyancy?",
+    "answer": "Buoyancy is the upward force exerted by a fluid on an object placed in it. Objects float when buoyant force equals their weight. Archimedes' principle states that buoyant force equals the weight of displaced fluid."
+  },
+  {
+    "id": "167",
+    "question": "What is middleware in Express.js?",
+    "answer": "Middleware are functions that execute during the request-response cycle in Express.js. They can modify request/response objects, execute code, end the request, or call the next middleware. Examples include authentication, logging, and error handling."
+  },
+  {
+    "id": "168",
+    "question": "How does recycling help the environment?",
+    "answer": "Recycling reduces waste in landfills, conserves natural resources, saves energy, reduces pollution, and decreases greenhouse gas emissions. It turns used materials into new products, reducing the need to extract and process raw materials."
+  },
+  {
+    "id": "169",
+    "question": "What is a callback function?",
+    "answer": "A callback function is passed as an argument to another function and executed later, often after an asynchronous operation completes. Callbacks enable event handling and asynchronous programming patterns in JavaScript."
+  },
+  {
+    "id": "170",
+    "question": "What is the muscular system?",
+    "answer": "The muscular system consists of over 600 muscles that enable movement, maintain posture, and generate heat. Three types exist: skeletal (voluntary movement), smooth (organs), and cardiac (heart). Muscles work by contracting and relaxing."
+  },
+  {
+    "id": "171",
+    "question": "What is phishing?",
+    "answer": "Phishing is a cyber attack where criminals impersonate legitimate organizations via email, text, or websites to steal sensitive information like passwords or credit card numbers. Always verify sender identity and avoid clicking suspicious links."
+  },
+  {
+    "id": "172",
+    "question": "What is acceleration?",
+    "answer": "Acceleration is the rate of change of velocity over time, measured in meters per second squared (m/s²). It includes speeding up, slowing down, or changing direction. Formula: Acceleration = Change in velocity ÷ Time."
+  },
+  {
+    "id": "173",
+    "question": "What is package.json?",
+    "answer": "package.json is a configuration file in Node.js projects that contains metadata about the project, lists dependencies, defines scripts, and specifies version information. It's essential for managing project dependencies and sharing code with others."
+  },
+  {
+    "id": "174",
+    "question": "What is fermentation?",
+    "answer": "Fermentation is a metabolic process where microorganisms like yeast or bacteria convert sugars into acids, gases, or alcohol without oxygen. It's used to make bread, beer, wine, yogurt, and cheese."
+  },
+  {
+    "id": "175",
+    "question": "How do I build good habits?",
+    "answer": "Start small with specific actions, link new habits to existing routines, track your progress, make it easy by preparing your environment, reward yourself for consistency, and be patient as habits take time to form."
+  },
+  {
+    "id": "176",
+    "question": "What is a framework in programming?",
+    "answer": "A framework is a pre-built structure that provides reusable code and tools to build applications faster. It enforces certain patterns and best practices. Examples include React for frontend, Express for backend, and Django for Python."
+  },
+  {
+    "id": "177",
+    "question": "What is a meteor?",
+    "answer": "A meteor is a streak of light (shooting star) produced when a space rock enters Earth's atmosphere and burns up due to friction. Meteors that reach the ground are called meteorites. Most are tiny and burn completely."
+  },
+  {
+    "id": "178",
+    "question": "What is HTTPS?",
+    "answer": "HTTPS (Hypertext Transfer Protocol Secure) is the secure version of HTTP that encrypts data sent between your browser and websites using SSL/TLS protocols. The padlock icon indicates a secure HTTPS connection protecting your information."
+  },
+  {
+    "id": "179",
+    "question": "What is natural selection?",
+    "answer": "Natural selection is the process where organisms better adapted to their environment tend to survive and reproduce more successfully. Over generations, beneficial traits become more common in the population, driving evolution."
+  },
+  {
+    "id": "180",
+    "question": "How do I manage time effectively?",
+    "answer": "Prioritize tasks using urgent/important matrix, create daily to-do lists, avoid multitasking, use time blocking, eliminate distractions, delegate when possible, say no to non-essential tasks, and schedule breaks for productivity."
+  },
+  {
+    "id": "181",
+    "question": "What is an array method in JavaScript?",
+    "answer": "Array methods are built-in functions for manipulating arrays. Common methods include push (add to end), pop (remove from end), map (transform elements), filter (select elements), and forEach (iterate). They make array operations easier and cleaner."
+  },
+  {
+    "id": "182",
+    "question": "What is a catalyst?",
+    "answer": "A catalyst is a substance that speeds up a chemical reaction without being consumed or permanently changed. It lowers the activation energy needed for reactions to occur. Enzymes are biological catalysts in living organisms."
+  },
+  {
+    "id": "183",
+    "question": "What is responsive images?",
+    "answer": "Responsive images adapt to different screen sizes and resolutions, loading appropriate image sizes for each device. This improves page load speed and user experience. Techniques include srcset attribute, picture element, and CSS media queries."
+  },
+  {
+    "id": "184",
+    "question": "How does a battery work?",
+    "answer": "A battery converts chemical energy into electrical energy through chemical reactions. It has two terminals (positive and negative) and an electrolyte. Electrons flow from negative to positive terminal through a circuit, powering devices."
+  },
+  {
+    "id": "185",
+    "question": "What is object-oriented programming?",
+    "answer": "OOP is a programming paradigm that organizes code into objects containing data (properties) and functions (methods). Key principles include encapsulation, inheritance, polymorphism, and abstraction. It promotes code reusability and organization."
+  },
+  {
+    "id": "186",
+    "question": "What is food chain?",
+    "answer": "A food chain shows how energy and nutrients flow through an ecosystem as organisms eat each other. It starts with producers (plants), followed by primary consumers (herbivores), secondary consumers (carnivores), and decomposers."
+  },
+  {
+    "id": "187",
+    "question": "How do I improve my public speaking?",
+    "answer": "Practice regularly, know your material well, maintain eye contact, use vocal variety, control body language, start with a strong opening, tell stories, engage your audience, handle nerves by breathing deeply, and seek feedback."
+  },
+  {
+    "id": "188",
+    "question": "What is CSS box model?",
+    "answer": "The CSS box model describes how elements are rendered with four areas: content, padding (space inside border), border, and margin (space outside border). Understanding the box model is crucial for layout and spacing control."
+  },
+  {
+    "id": "189",
+    "question": "What is oxidation?",
+    "answer": "Oxidation is a chemical reaction where a substance loses electrons, often involving oxygen. Common examples include rusting of iron, burning of fuel, and browning of cut apples. It's paired with reduction in redox reactions."
+  },
+  {
+    "id": "190",
+    "question": "What is localhost:3000?",
+    "answer": "localhost:3000 means your computer (localhost) is running a server on port 3000. The port number specifies which service to connect to. Many development servers use port 3000 by default for testing web applications locally."
+  },
+  {
+    "id": "191",
+    "question": "What is the carbon cycle?",
+    "answer": "The carbon cycle is the movement of carbon through Earth's atmosphere, oceans, soil, and living organisms. Plants absorb CO₂ through photosynthesis, animals eat plants, and carbon returns to the atmosphere through respiration and decomposition."
+  },
+  {
+    "id": "192",
+    "question": "How do I learn a new language faster?",
+    "answer": "Practice daily, immerse yourself through media and conversation, use spaced repetition for vocabulary, focus on common phrases first, don't fear mistakes, find a language partner, use apps and resources, and set realistic goals."
+  },
+  {
+    "id": "193",
+    "question": "What is a constructor in programming?",
+    "answer": "A constructor is a special method that initializes objects when they're created. It sets initial values for object properties and runs automatically when you create a new instance using the 'new' keyword in object-oriented programming."
+  },
+  {
+    "id": "194",
+    "question": "What is momentum?",
+    "answer": "Momentum is the quantity of motion an object has, calculated as mass times velocity (p = mv). Heavier and faster objects have more momentum. According to conservation of momentum, total momentum in a closed system remains constant."
+  },
+  {
+    "id": "195",
+    "question": "What is Git commit?",
+    "answer": "A Git commit saves a snapshot of your project's changes to the local repository with a descriptive message. Each commit creates a point in history you can return to, helping track project evolution and collaborate with others."
+  },
+  {
+    "id": "196",
+    "question": "What is homeostasis?",
+    "answer": "Homeostasis is the ability of living organisms to maintain stable internal conditions despite external changes. Examples include regulating body temperature, blood sugar levels, pH balance, and water content to keep the body functioning properly."
+  },
+  {
+    "id": "197",
+    "question": "How do I deal with exam stress?",
+    "answer": "Prepare well in advance, practice relaxation techniques like deep breathing, get enough sleep, exercise regularly, eat nutritious food, take breaks while studying, stay positive, and remember that one exam doesn't define you."
+  },
+  {
+    "id": "198",
+    "question": "What is event delegation in JavaScript?",
+    "answer": "Event delegation attaches a single event listener to a parent element instead of multiple listeners to child elements. It uses event bubbling to handle events efficiently, especially useful for dynamically added elements."
+  },
+  {
+    "id": "199",
+    "question": "What is air pressure?",
+    "answer": "Air pressure is the weight of air molecules pressing down on Earth's surface. It decreases with altitude because there's less air above. Changes in air pressure cause weather patterns, winds, and affect how we breathe."
+  },
+  {
+    "id": "200",
+    "question": "What is dependency injection?",
+    "answer": "Dependency injection is a design pattern where objects receive their dependencies from external sources rather than creating them internally. It makes code more modular, testable, and maintainable by reducing tight coupling between components."
   }
 ]
