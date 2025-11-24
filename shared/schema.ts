@@ -1,18 +1,30 @@
-import { sql } from "drizzle-orm";
-import { pgTable, text, varchar } from "drizzle-orm/pg-core";
-import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
-export const users = pgTable("users", {
-  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  username: text("username").notNull().unique(),
-  password: text("password").notNull(),
+// Knowledge entry schema for the self-learning AI database
+export const knowledgeEntrySchema = z.object({
+  id: z.string(),
+  question: z.string(),
+  answer: z.string(),
 });
 
-export const insertUserSchema = createInsertSchema(users).pick({
-  username: true,
-  password: true,
-});
+export const insertKnowledgeEntrySchema = knowledgeEntrySchema.omit({ id: true });
 
-export type InsertUser = z.infer<typeof insertUserSchema>;
-export type User = typeof users.$inferSelect;
+export type KnowledgeEntry = z.infer<typeof knowledgeEntrySchema>;
+export type InsertKnowledgeEntry = z.infer<typeof insertKnowledgeEntrySchema>;
+
+// API response types
+export type QueryResponse = {
+  answer: string;
+  confidence: "high" | "low" | "none";
+  entryId?: string;
+};
+
+export type TeachRequest = {
+  question: string;
+  answer: string;
+};
+
+export type ImproveRequest = {
+  id: string;
+  answer: string;
+};

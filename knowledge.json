@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "question": "What is BrainBox Agent?",
+    "answer": "BrainBox Agent is a self-learning, API-free AI that uses its local database to answer and learn from conversations. I work completely offline without requiring any external API keys."
+  },
+  {
+    "id": "2",
+    "question": "How does learning work?",
+    "answer": "When you ask me something I don't know, you can teach me by providing the correct answer. I save this to my knowledge base and will remember it for future conversations. You can also improve my existing answers to make them more accurate."
+  },
+  {
+    "id": "3",
+    "question": "What makes BrainBox Agent different?",
+    "answer": "Unlike other AI assistants, I don't need internet connectivity or API keys. All my knowledge is stored locally in a JSON file, and I learn and improve through your interactions with me."
+  },
+  {
+    "id": "acaa7c7b-8f6b-4e91-9b50-6b69a15498dc",
+    "question": "What is quantum computing?",
+    "answer": "Quantum computing uses quantum bits (qubits) that can exist in multiple states simultaneously, enabling parallel processing of information far beyond classical computers."
+  }
+]
