@@ -7,6 +7,92 @@ import type { QueryResponse, TeachRequest, ImproveRequest } from "@shared/schema
 // Lunr.js search index
 let searchIndex: lunr.Index | null = null;
 
+// Hindi/Hinglish detection keywords
+const hindiKeywords = [
+  "kya", "kaise", "kyu", "kyun", "ha", "haan", "nahi", "nahin", "kidar", "kahan",
+  "kya ho", "kya hai", "mera", "tera", "apna", "tum", "tumhara", "main", "maine",
+  "hum", "hamara", "aap", "aapka", "woh", "yeh", "ye", "wo", "inhe", "unhe",
+  "kyu", "kyun", "kitna", "kaisa", "kaun", "kis", "kab", "kahan", "kidhar",
+  "samaj", "suna", "dekha", "jaanta", "janti", "samajhta", "kar", "karo",
+  "sakte", "sakti", "seekh", "sikhao", "batao", "bata", "sunao", "suno"
+];
+
+// Detect if input contains Hindi/Hinglish
+function detectHinglish(text: string): boolean {
+  const lowerText = text.toLowerCase();
+  return hindiKeywords.some(keyword => lowerText.includes(keyword));
+}
+
+// Convert English text to simple Hinglish
+function convertToHinglish(englishText: string): string {
+  let hinglish = englishText;
+  
+  // Word replacements (order matters - longer phrases first)
+  const replacements: [string, string][] = [
+    [/\byou are\b/gi, "tum ho"],
+    [/\byour\b/gi, "tumhara"],
+    [/\byou\b/gi, "tum"],
+    [/\bcan\b/gi, "kar sakte ho"],
+    [/\bcannot\b/gi, "nahi kar sakte"],
+    [/\bcan't\b/gi, "nahi kar sakte"],
+    [/\bwill\b/gi, "hoga"],
+    [/\bwon't\b/gi, "nahi hoga"],
+    [/\bare\b/gi, "ho"],
+    [/\bis\b/gi, "hai"],
+    [/\bthe\b/gi, ""],
+    [/\bit\b/gi, "yeh"],
+    [/\bthis\b/gi, "yeh"],
+    [/\bthat\b/gi, "woh"],
+    [/\bsame\b/gi, "ek jaisa"],
+    [/\bdifferent\b/gi, "alag"],
+    [/\bmeans\b/gi, "matlab"],
+    [/\bhelp\b/gi, "madad"],
+    [/\bdo\b/gi, "karo"],
+    [/\bdoes\b/gi, "karta hai"],
+    [/\bwhat\b/gi, "kya"],
+    [/\bwhere\b/gi, "kahan"],
+    [/\bwhen\b/gi, "kab"],
+    [/\bwhy\b/gi, "kyu"],
+    [/\bhow\b/gi, "kaise"],
+    [/\bwhich\b/gi, "kaun sa"],
+    [/\byes\b/gi, "haan"],
+    [/\bno\b/gi, "nahi"],
+    [/\balso\b/gi, "bhi"],
+    [/\bjust\b/gi, "bas"],
+    [/\bonly\b/gi, "sirf"],
+    [/\buse\b/gi, "use karo"],
+    [/\bmake\b/gi, "banao"],
+    [/\bwalk\b/gi, "chal"],
+    [/\bkeep\b/gi, "rakho"],
+    [/\bget\b/gi, "lo"],
+    [/\btake\b/gi, "lo"],
+    [/\bgive\b/gi, "do"],
+    [/\bwrite\b/gi, "likho"],
+    [/\bread\b/gi, "padho"],
+    [/\bthink\b/gi, "soch"],
+    [/\bknow\b/gi, "jaanta ho"],
+    [/\bunderstand\b/gi, "samajhta ho"],
+    [/\bgo\b/gi, "jao"],
+    [/\bcome\b/gi, "aao"],
+    [/\bstart\b/gi, "shuru karo"],
+    [/\bstop\b/gi, "ruko"],
+    [/\blast\b/gi, "pichla"],
+    [/\bnext\b/gi, "agle"],
+    [/\bfirst\b/gi, "pehla"],
+    [/\bend\b/gi, "ant"],
+    [/\bbegin\b/gi, "shuru"],
+  ];
+
+  replacements.forEach(([pattern, replacement]) => {
+    hinglish = hinglish.replace(pattern, replacement);
+  });
+
+  // Clean up extra spaces and remove leading/trailing spaces
+  hinglish = hinglish.replace(/\s+/g, " ").trim();
+  
+  return hinglish;
+}
+
 // Build or rebuild the search index
 async function buildSearchIndex() {
   const knowledge = await storage.getAllKnowledge();
@@ -28,9 +114,17 @@ async function buildSearchIndex() {
 
 // Generate a natural language response from search results
 function generateResponse(query: string, results: lunr.Index.Result[], knowledge: any[]): QueryResponse {
+  // Detect if user is asking in Hindi/Hinglish
+  const isHinglish = detectHinglish(query);
+  
+  let answer = "";
+  let noAnswer = isHinglish 
+    ? "Mujhe iska jawab nahi pata. Kya tum mujhe sikhana chaho?"
+    : "I don't know the answer to that yet. Would you like to teach me?";
+
   if (results.length === 0) {
     return {
-      answer: "I don't know the answer to that yet. Would you like to teach me?",
+      answer: noAnswer,
       confidence: "none",
     };
   }
@@ -40,16 +134,24 @@ function generateResponse(query: string, results: lunr.Index.Result[], knowledge
 
   if (!entry) {
     return {
-      answer: "I don't know the answer to that yet. Would you like to teach me?",
+      answer: noAnswer,
       confidence: "none",
     };
+  }
+
+  // Get the English answer
+  answer = entry.answer;
+  
+  // Convert to Hinglish if user asked in Hindi/Hinglish
+  if (isHinglish) {
+    answer = convertToHinglish(answer);
   }
 
   // Determine confidence based on score
   const confidence = bestMatch.score > 2 ? "high" : "low";
 
   return {
-    answer: entry.answer,
+    answer,
     confidence,
     entryId: entry.id,
   };
