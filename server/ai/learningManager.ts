@@ -104,11 +104,11 @@ export function parseTeachingInput(input: string): { question: string; answer: s
   // Try different formats
   const patterns = [
     // Format: "Question: ... Answer: ..."
-    /(?:question|sawal|q):\s*(.+?)(?:answer|jawab|a):\s*(.+)/is,
+    /(?:question|sawal|q):\s*(.+?)(?:answer|jawab|a):\s*(.+)/i,
     // Format: "Q: ... A: ..."
-    /q:\s*(.+?)a:\s*(.+)/is,
+    /q:\s*(.+?)a:\s*(.+)/i,
     // Format with line breaks
-    /(?:question|sawal):\s*(.+)\n(?:answer|jawab):\s*(.+)/is,
+    /(?:question|sawal):\s*(.+)\n(?:answer|jawab):\s*(.+)/i,
   ];
 
   for (const pattern of patterns) {
