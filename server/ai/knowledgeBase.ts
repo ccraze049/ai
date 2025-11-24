@@ -62,59 +62,49 @@ async function ensureIndexReady(): Promise<void> {
  * Simple keyword-based fallback search when Lunr doesn't find results
  */
 function keywordSearch(query: string, knowledge: KnowledgeEntry[], limit: number = 5): SearchResult[] {
-  const queryWords = query.toLowerCase().split(/\s+/).filter(w => w.length > 2);
-  
-  // Filter out very common words that appear in many entries
-  const commonWords = new Set(['how', 'what', 'your', 'that', 'this', 'with', 'from', 'they', 'have', 'does', 'work', 'use', 'used', 'system']);
-  const significantWords = queryWords.filter(w => !commonWords.has(w));
+  const queryWords = query.toLowerCase().split(/\s+/).filter(w => w.length > 0);
   
   const scored = knowledge.map(entry => {
     const questionLower = entry.question.toLowerCase();
     const questionWords = questionLower.split(/\s+/);
     const answerLower = entry.answer.toLowerCase();
     
-    // Count exact word matches in question
+    // Count matching keywords
     let score = 0;
-    let matchCount = 0;
+    let exactMatches = 0;
     
-    significantWords.forEach(qWord => {
-      // Exact word match in question (strong signal)
+    queryWords.forEach(qWord => {
+      // Exact word match in question (strongest signal)
       if (questionWords.some(w => w === qWord)) {
-        score += 5;
-        matchCount += 1;
+        score += 10;
+        exactMatches += 1;
       }
       // Partial word match in question
-      else if (questionWords.some(w => w.includes(qWord))) {
-        score += 2;
-        matchCount += 1;
+      else if (questionWords.some(w => w.includes(qWord) || qWord.includes(w))) {
+        score += 3;
       }
-      // Match in answer
-      else if (answerLower.includes(qWord)) {
-        score += 0.5;
+      // Match anywhere in question or answer
+      else if (questionLower.includes(qWord) || answerLower.includes(qWord)) {
+        score += 1;
       }
     });
     
-    // Require at least some keyword matches, prefer entries with more matches
-    if (matchCount === 0 && score === 0) {
-      score = 0;
-    }
-    
-    return { entry, score, matchCount };
+    return { entry, score, exactMatches };
   })
     .filter(r => r.score > 0)
     .sort((a, b) => {
-      // Sort by match count first, then by score
-      if (b.matchCount !== a.matchCount) {
-        return b.matchCount - a.matchCount;
+      // Sort by exact matches first, then by total score
+      if (b.exactMatches !== a.exactMatches) {
+        return b.exactMatches - a.exactMatches;
       }
       return b.score - a.score;
     })
     .slice(0, limit)
     .map(({ entry, score }) => {
       let relevance: 'high' | 'medium' | 'low';
-      if (score > 5) {
+      if (score >= 10) {
         relevance = 'high';
-      } else if (score > 2) {
+      } else if (score >= 3) {
         relevance = 'medium';
       } else {
         relevance = 'low';
