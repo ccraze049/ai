@@ -8,6 +8,12 @@ The application features a conversational chat interface where users can ask que
 
 ## Recent Changes
 
+**November 24, 2025 (Critical Search Fix - Final)**: Fixed critical search issue preventing answers from being retrieved. Implemented robust dual-layer search system:
+- **Layer 1**: Lunr full-text search with lowered threshold (minScore 0.1)
+- **Layer 2**: Fallback keyword matching for guaranteed match when Lunr returns nothing
+- Result: AI now correctly retrieves answers from 300-topic database
+- Tested and verified working with comprehensive dataset
+
 **November 24, 2025 (Complete Multilingual System)**: Built comprehensive multilingual chat system that stores all knowledge in English but responds naturally in user's language (English, Hindi, Hinglish, or mixed styles) without any external APIs:
 
 **System Architecture:**

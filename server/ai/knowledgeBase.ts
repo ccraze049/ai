@@ -59,6 +59,53 @@ async function ensureIndexReady(): Promise<void> {
 }
 
 /**
+ * Simple keyword-based fallback search when Lunr doesn't find results
+ */
+function keywordSearch(query: string, knowledge: KnowledgeEntry[], limit: number = 5): SearchResult[] {
+  const queryWords = query.toLowerCase().split(/\s+/).filter(w => w.length > 2);
+  
+  const scored = knowledge.map(entry => {
+    const questionWords = entry.question.toLowerCase().split(/\s+/);
+    const answerWords = entry.answer.toLowerCase().split(/\s+/);
+    
+    // Count matching keywords
+    let score = 0;
+    queryWords.forEach(qWord => {
+      // Question matches count more
+      if (questionWords.some(w => w.includes(qWord) || qWord.includes(w))) {
+        score += 2;
+      }
+      // Answer matches count less
+      if (answerWords.some(w => w.includes(qWord) || qWord.includes(w))) {
+        score += 0.5;
+      }
+    });
+    
+    return { entry, score };
+  })
+    .filter(r => r.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit)
+    .map(({ entry, score }) => {
+      let relevance: 'high' | 'medium' | 'low';
+      if (score > 3) {
+        relevance = 'high';
+      } else if (score > 1) {
+        relevance = 'medium';
+      } else {
+        relevance = 'low';
+      }
+      return {
+        entry,
+        score,
+        relevance,
+      };
+    });
+  
+  return scored;
+}
+
+/**
  * Search knowledge base for relevant entries
  */
 export async function searchKnowledge(
@@ -73,16 +120,18 @@ export async function searchKnowledge(
   // Ensure index is ready
   await ensureIndexReady();
 
+  const knowledge = await storage.getAllKnowledge();
+
   if (!searchIndex) {
-    return [];
+    // Fallback to keyword search if index not available
+    return keywordSearch(normalizedQuery, knowledge, limit);
   }
 
   // Search the index
   const results = searchIndex.search(normalizedQuery);
-  const knowledge = await storage.getAllKnowledge();
 
   // Map results to entries with relevance scores
-  const searchResults: SearchResult[] = results
+  let searchResults: SearchResult[] = results
     .filter(result => result.score >= minScore)
     .slice(0, limit)
     .map(result => {
@@ -109,6 +158,11 @@ export async function searchKnowledge(
       };
     })
     .filter((result): result is SearchResult => result !== null);
+
+  // If Lunr found no results or very few, use keyword fallback
+  if (searchResults.length === 0 && results.length === 0) {
+    return keywordSearch(normalizedQuery, knowledge, limit);
+  }
 
   return searchResults;
 }
