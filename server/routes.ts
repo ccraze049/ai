@@ -11,23 +11,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Query endpoint - Process user query using main chat engine
   app.post("/api/query", async (req, res) => {
     try {
-      const { query } = req.body;
+      const { query, context } = req.body;
 
       if (!query || typeof query !== "string") {
         return res.status(400).json({ error: "Query is required" });
       }
 
-      // Use the new chat engine to process the query
-      const response = await processQuery(query, {}, {
+      // Use the new chat engine to process the query with context
+      const response = await processQuery(query, context || {}, {
         enableLearning: true,
         casualTone: true,
       });
 
-      // Return only the QueryResponse fields (exclude extra fields like languageDetection)
+      // Return QueryResponse with context for multi-turn conversations
       const queryResponse: QueryResponse = {
         answer: response.answer,
         confidence: response.confidence,
         entryId: response.entryId,
+        context: response.context,
       };
 
       res.json(queryResponse);

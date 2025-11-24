@@ -8,7 +8,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Send, Brain, Lightbulb, Edit3, Sparkles } from "lucide-react";
-import type { QueryResponse, TeachRequest, ImproveRequest } from "@shared/schema";
+import type { QueryResponse, TeachRequest, ImproveRequest, ChatContext } from "@shared/schema";
 
 type Message = {
   id: string;
@@ -24,6 +24,7 @@ export default function Chat() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const [chatContext, setChatContext] = useState<ChatContext>({});
   const [teachModalOpen, setTeachModalOpen] = useState(false);
   const [improveModalOpen, setImproveModalOpen] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState("");
@@ -41,12 +42,23 @@ export default function Chat() {
   // Query mutation
   const queryMutation = useMutation({
     mutationFn: async (query: string) => {
-      const response = await apiRequest("POST", "/api/query", { query });
+      const response = await apiRequest("POST", "/api/query", { 
+        query, 
+        context: chatContext 
+      });
       const data = await response.json() as QueryResponse;
       return { data, query };
     },
     onSuccess: ({ data, query }) => {
       setIsTyping(false);
+      
+      // Update chat context if returned
+      if (data.context) {
+        setChatContext(data.context);
+      } else {
+        setChatContext({});
+      }
+      
       const aiMessage: Message = {
         id: Date.now().toString(),
         type: "ai",
