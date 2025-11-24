@@ -64,33 +64,57 @@ async function ensureIndexReady(): Promise<void> {
 function keywordSearch(query: string, knowledge: KnowledgeEntry[], limit: number = 5): SearchResult[] {
   const queryWords = query.toLowerCase().split(/\s+/).filter(w => w.length > 2);
   
+  // Filter out very common words that appear in many entries
+  const commonWords = new Set(['how', 'what', 'your', 'that', 'this', 'with', 'from', 'they', 'have', 'does', 'work', 'use', 'used', 'system']);
+  const significantWords = queryWords.filter(w => !commonWords.has(w));
+  
   const scored = knowledge.map(entry => {
-    const questionWords = entry.question.toLowerCase().split(/\s+/);
-    const answerWords = entry.answer.toLowerCase().split(/\s+/);
+    const questionLower = entry.question.toLowerCase();
+    const questionWords = questionLower.split(/\s+/);
+    const answerLower = entry.answer.toLowerCase();
     
-    // Count matching keywords
+    // Count exact word matches in question
     let score = 0;
-    queryWords.forEach(qWord => {
-      // Question matches count more
-      if (questionWords.some(w => w.includes(qWord) || qWord.includes(w))) {
-        score += 2;
+    let matchCount = 0;
+    
+    significantWords.forEach(qWord => {
+      // Exact word match in question (strong signal)
+      if (questionWords.some(w => w === qWord)) {
+        score += 5;
+        matchCount += 1;
       }
-      // Answer matches count less
-      if (answerWords.some(w => w.includes(qWord) || qWord.includes(w))) {
+      // Partial word match in question
+      else if (questionWords.some(w => w.includes(qWord))) {
+        score += 2;
+        matchCount += 1;
+      }
+      // Match in answer
+      else if (answerLower.includes(qWord)) {
         score += 0.5;
       }
     });
     
-    return { entry, score };
+    // Require at least some keyword matches, prefer entries with more matches
+    if (matchCount === 0 && score === 0) {
+      score = 0;
+    }
+    
+    return { entry, score, matchCount };
   })
     .filter(r => r.score > 0)
-    .sort((a, b) => b.score - a.score)
+    .sort((a, b) => {
+      // Sort by match count first, then by score
+      if (b.matchCount !== a.matchCount) {
+        return b.matchCount - a.matchCount;
+      }
+      return b.score - a.score;
+    })
     .slice(0, limit)
     .map(({ entry, score }) => {
       let relevance: 'high' | 'medium' | 'low';
-      if (score > 3) {
+      if (score > 5) {
         relevance = 'high';
-      } else if (score > 1) {
+      } else if (score > 2) {
         relevance = 'medium';
       } else {
         relevance = 'low';
