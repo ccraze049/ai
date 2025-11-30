@@ -17,7 +17,7 @@ import {
   getLearningSuccessMessage,
   type LearningContext,
 } from './learningManager';
-import { processLogicQuery, formatLogicResult, storeDataset, hasDataset } from './textAnalyzer';
+import { processLogicQuery, formatLogicResult, storeDataset, hasDataset, isPreviousMessageQuery, countWords } from './textAnalyzer';
 import type { QueryResponse } from '@shared/schema';
 
 export interface ChatContext {
@@ -111,6 +111,40 @@ export async function processQuery(
       context: { ...context, sessionId },
       languageDetection,
     };
+  }
+
+  // Check if user is asking about previous message word count
+  if (isPreviousMessageQuery(userQuery)) {
+    const history = context.conversationHistory || [];
+    // Find the last user message (excluding current one)
+    const previousUserMessages = history.filter(msg => msg.role === 'user');
+    
+    if (previousUserMessages.length > 0) {
+      const lastUserMessage = previousUserMessages[previousUserMessages.length - 1];
+      const wordCount = countWords(lastUserMessage.content);
+      
+      const response = languageDetection.language === 'english' 
+        ? `Your previous message had ${wordCount} word${wordCount !== 1 ? 's' : ''}.`
+        : `Aapke pichle message mein ${wordCount} word${wordCount !== 1 ? 's' : ''} the.`;
+      
+      return {
+        answer: response,
+        confidence: 'high',
+        context: { ...context, sessionId },
+        languageDetection,
+      };
+    } else {
+      const response = languageDetection.language === 'english'
+        ? "I don't see any previous message to count. Please send some text first."
+        : "Mujhe koi pichla message nahi dikh raha. Pehle kuch text bhejiye.";
+      
+      return {
+        answer: response,
+        confidence: 'low',
+        context: { ...context, sessionId },
+        languageDetection,
+      };
+    }
   }
 
   // Check for logic/text analysis queries

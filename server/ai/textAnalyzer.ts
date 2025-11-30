@@ -159,6 +159,24 @@ export interface LogicQueryPatterns {
   mathExpression: RegExp[];
 }
 
+const PREVIOUS_MESSAGE_PATTERNS = [
+  /maine\s+kitne\s+words?\s+(bheje|send\s+kiye|likhe)/i,
+  /mane\s+kitne\s+words?\s+(bheje|send\s+kiye|likhe)/i,
+  /pichle?\s+message\s+m(e|ein)?\s+kitne\s+words?/i,
+  /upar\s+kitne\s+words?/i,
+  /count\s+(karo|kar)\s+kitne\s+words?/i,
+  /kitne\s+words?\s+send\s+kiye/i,
+  /kitne\s+words?\s+(the|bheje|likhe)/i,
+  /how\s+many\s+words?\s+(did\s+i|i)\s+(send|type|write)/i,
+  /count\s+my\s+(previous|last)\s+(message|text)/i,
+  /words?\s+in\s+my\s+(previous|last)\s+message/i,
+];
+
+export function isPreviousMessageQuery(query: string): boolean {
+  const normalizedQuery = query.toLowerCase().trim();
+  return PREVIOUS_MESSAGE_PATTERNS.some(p => p.test(normalizedQuery));
+}
+
 const LOGIC_PATTERNS: LogicQueryPatterns = {
   wordCount: [
     /^count\s+words?\s*[:.]?\s*/i,

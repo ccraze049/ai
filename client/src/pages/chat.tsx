@@ -8,7 +8,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Send, Brain, Lightbulb, Edit3, Sparkles, Hash, List, Calculator } from "lucide-react";
-import type { QueryResponse, TeachRequest, ImproveRequest, ChatContext } from "@shared/schema";
+import type { QueryResponse, TeachRequest, ImproveRequest, ChatContext, ConversationMessage } from "@shared/schema";
 
 function isLogicResult(content: string): boolean {
   const trimmed = content.trim();
@@ -155,12 +155,26 @@ export default function Chat() {
     queryKey: ["/api/knowledge/count"],
   });
 
+  // Build conversation history from messages
+  const buildConversationHistory = (): ConversationMessage[] => {
+    return messages.map(msg => ({
+      role: msg.type === 'user' ? 'user' as const : 'assistant' as const,
+      content: msg.content,
+      timestamp: msg.timestamp.getTime(),
+    }));
+  };
+
   // Query mutation
   const queryMutation = useMutation({
     mutationFn: async (query: string) => {
+      const conversationHistory = buildConversationHistory();
+      const contextWithHistory: ChatContext = {
+        ...chatContext,
+        conversationHistory,
+      };
       const response = await apiRequest("POST", "/api/query", { 
         query, 
-        context: chatContext 
+        context: contextWithHistory 
       });
       const data = await response.json() as QueryResponse;
       return { data, query };
