@@ -365,6 +365,23 @@ export function isPreviousMessageQuery(query: string): boolean {
   return PREVIOUS_MESSAGE_PATTERNS.some(p => p.test(normalizedQuery));
 }
 
+const SHOW_PREVIOUS_MESSAGE_PATTERNS = [
+  /m(a|e)i?ne\s+(abhi\s+)?jo\s+(msg|message)\s+(send\s+)?(kiya|kia|bheja)\s+(tha\s+)?(wo|woh|vo|voh)?\s*(dikha|dikhao|batao|bata)/i,
+  /mera\s+(pichla|last|previous)\s+(msg|message)\s*(dikha|dikhao|batao|bata)/i,
+  /pichla\s+(msg|message)\s*(dikha|dikhao|batao|bata|kya\s+tha)/i,
+  /show\s+(my\s+)?(last|previous)\s+(msg|message)/i,
+  /what\s+(was|did)\s+(my\s+)?(last|previous)\s+(msg|message)/i,
+  /(last|previous)\s+(msg|message)\s*(kya\s+tha|kya\s+hai)/i,
+  /upar\s+(kya\s+)?(likha|bheja|send\s+kiya)\s*(tha)?/i,
+  /maine\s+kya\s+(likha|bheja|send\s+kiya)/i,
+  /mane\s+kya\s+(likha|bheja|send\s+kiya)/i,
+];
+
+export function isShowPreviousMessageQuery(query: string): boolean {
+  const normalizedQuery = query.toLowerCase().trim();
+  return SHOW_PREVIOUS_MESSAGE_PATTERNS.some(p => p.test(normalizedQuery));
+}
+
 const LOGIC_PATTERNS: LogicQueryPatterns = {
   wordCount: [
     /^count\s+words?\s*[:.]?\s*/i,

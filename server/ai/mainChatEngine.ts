@@ -17,7 +17,7 @@ import {
   getLearningSuccessMessage,
   type LearningContext,
 } from './learningManager';
-import { processLogicQuery, formatLogicResult, storeDataset, hasDataset, isPreviousMessageQuery, countWords, isMultiplicationTableQuery, generateMultiplicationTable, isDateTimeQuery, getCurrentDateTime } from './textAnalyzer';
+import { processLogicQuery, formatLogicResult, storeDataset, hasDataset, isPreviousMessageQuery, countWords, isMultiplicationTableQuery, generateMultiplicationTable, isDateTimeQuery, getCurrentDateTime, isShowPreviousMessageQuery } from './textAnalyzer';
 import type { QueryResponse } from '@shared/schema';
 
 export interface ChatContext {
@@ -140,6 +140,38 @@ export async function processQuery(
       context: { ...context, sessionId },
       languageDetection,
     };
+  }
+
+  // Check if user wants to see their previous message
+  if (isShowPreviousMessageQuery(userQuery)) {
+    const history = context.conversationHistory || [];
+    const userMessages = history.filter(msg => msg.role === 'user');
+    
+    if (userMessages.length >= 2) {
+      const previousUserMessage = userMessages[userMessages.length - 2];
+      
+      const response = languageDetection.language === 'english' 
+        ? `Your previous message was:\n\n"${previousUserMessage.content}"`
+        : `Aapka pichla message tha:\n\n"${previousUserMessage.content}"`;
+      
+      return {
+        answer: response,
+        confidence: 'high',
+        context: { ...context, sessionId },
+        languageDetection,
+      };
+    } else {
+      const response = languageDetection.language === 'english'
+        ? "I don't see any previous message. Please send some text first."
+        : "Mujhe koi pichla message nahi dikh raha. Pehle kuch text bhejiye.";
+      
+      return {
+        answer: response,
+        confidence: 'low',
+        context: { ...context, sessionId },
+        languageDetection,
+      };
+    }
   }
 
   // Check if user is asking about previous message word count
