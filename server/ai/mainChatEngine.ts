@@ -17,6 +17,7 @@ import {
   getLearningSuccessMessage,
   type LearningContext,
 } from './learningManager';
+import { processLogicQuery, formatLogicResult, storeDataset, hasDataset } from './textAnalyzer';
 import type { QueryResponse } from '@shared/schema';
 
 export interface ChatContext {
@@ -25,6 +26,8 @@ export interface ChatContext {
     type: 'question_answer' | 'confirmation';
     data?: any;
   };
+  sessionId?: string;
+  datasetText?: string;
 }
 
 export interface ConversationMessage {
@@ -58,6 +61,33 @@ export async function processQuery(
 
   // Detect user's language
   const languageDetection = detectLanguage(userQuery);
+
+  // Generate session ID for dataset storage
+  const sessionId = context.sessionId || `session_${Date.now()}`;
+
+  // Check for logic/text analysis queries FIRST
+  const logicResult = processLogicQuery(userQuery, sessionId, context.datasetText);
+  
+  if (logicResult.isLogicQuery) {
+    if (logicResult.error) {
+      return {
+        answer: logicResult.error,
+        confidence: 'low',
+        context: { ...context, sessionId },
+        languageDetection,
+      };
+    }
+    
+    if (logicResult.result) {
+      const formattedResult = formatLogicResult(logicResult.result);
+      return {
+        answer: formattedResult,
+        confidence: 'high',
+        context: { ...context, sessionId },
+        languageDetection,
+      };
+    }
+  }
 
   // Check if user wants to teach something
   if (opts.enableLearning) {

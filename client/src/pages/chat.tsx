@@ -7,8 +7,124 @@ import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Send, Brain, Lightbulb, Edit3, Sparkles } from "lucide-react";
+import { Send, Brain, Lightbulb, Edit3, Sparkles, Hash, List, Calculator } from "lucide-react";
 import type { QueryResponse, TeachRequest, ImproveRequest, ChatContext } from "@shared/schema";
+
+function isLogicResult(content: string): boolean {
+  const trimmed = content.trim();
+  if (/^\d+$/.test(trimmed)) return true;
+  if (/^-?\d+\.?\d*$/.test(trimmed)) return true;
+  if (/^\d+\s*\(from dataset\)$/.test(trimmed)) return true;
+  if (trimmed.startsWith('[') && trimmed.endsWith(']')) return true;
+  if (trimmed.startsWith('{') && trimmed.endsWith('}')) return true;
+  if (trimmed === '[]') return true;
+  return false;
+}
+
+function formatLogicContent(content: string): { type: 'number' | 'array' | 'object' | 'text', value: unknown } {
+  const trimmed = content.replace(/\s*\(from dataset\)\s*$/, '').trim();
+  
+  if (/^\d+$/.test(trimmed)) {
+    return { type: 'number', value: parseInt(trimmed) };
+  }
+  if (/^-?\d+\.?\d*$/.test(trimmed)) {
+    return { type: 'number', value: parseFloat(trimmed) };
+  }
+  
+  try {
+    const parsed = JSON.parse(trimmed);
+    if (Array.isArray(parsed)) {
+      return { type: 'array', value: parsed };
+    }
+    if (typeof parsed === 'object' && parsed !== null) {
+      return { type: 'object', value: parsed };
+    }
+  } catch {
+  }
+  
+  return { type: 'text', value: content };
+}
+
+function LogicResultDisplay({ content }: { content: string }) {
+  const result = formatLogicContent(content);
+  const isFromDataset = content.includes('(from dataset)');
+  
+  if (result.type === 'object') {
+    const obj = result.value as Record<string, unknown>;
+    if ('message' in obj && 'words' in obj && 'lines' in obj) {
+      return (
+        <div className="space-y-2">
+          <p className="text-base font-medium text-foreground">{String(obj.message)}</p>
+          <div className="flex gap-4">
+            <Badge variant="secondary">{String(obj.words)} words</Badge>
+            <Badge variant="secondary">{String(obj.lines)} lines</Badge>
+          </div>
+        </div>
+      );
+    }
+  }
+  
+  return (
+    <div className="space-y-2">
+      {result.type === 'number' && (
+        <div className="flex items-center gap-3">
+          <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10">
+            <Hash className="w-5 h-5 text-primary" />
+          </div>
+          <span className="text-3xl font-bold text-foreground">{String(result.value)}</span>
+        </div>
+      )}
+      
+      {result.type === 'array' && (
+        <div className="space-y-2">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <List className="w-4 h-4" />
+            <span>{(result.value as unknown[]).length} items</span>
+          </div>
+          {(result.value as unknown[]).length === 0 ? (
+            <p className="text-sm text-muted-foreground">None found</p>
+          ) : (
+            <div className="flex flex-wrap gap-2">
+              {(result.value as unknown[]).map((item, i) => (
+                <Badge key={i} variant="secondary" className="text-sm">
+                  {String(item)}
+                </Badge>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+      
+      {result.type === 'object' && (
+        <div className="space-y-2">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <Calculator className="w-4 h-4" />
+            <span>Word Frequency</span>
+          </div>
+          <div className="grid grid-cols-2 gap-2">
+            {Object.entries(result.value as Record<string, number>).slice(0, 20).map(([word, count]) => (
+              <div key={word} className="flex items-center justify-between px-3 py-1.5 rounded-lg bg-background/50">
+                <span className="text-sm truncate">{word}</span>
+                <Badge variant="outline" className="ml-2">{String(count)}</Badge>
+              </div>
+            ))}
+          </div>
+          {Object.keys(result.value as object).length > 20 && (
+            <p className="text-xs text-muted-foreground">...and {Object.keys(result.value as object).length - 20} more</p>
+          )}
+        </div>
+      )}
+      
+      {result.type === 'text' && (
+        <p className="text-base leading-relaxed whitespace-pre-wrap break-words">{content}</p>
+      )}
+      
+      {isFromDataset && (
+        <Badge variant="outline" className="text-xs">From Dataset</Badge>
+      )}
+    </div>
+  );
+}
 
 type Message = {
   id: string;
@@ -259,9 +375,13 @@ export default function Chat() {
                         }`}
                         data-testid={`message-${message.type}-${message.id}`}
                       >
-                        <p className="text-base leading-relaxed whitespace-pre-wrap break-words" data-testid={`text-message-content-${message.id}`}>
-                          {message.content}
-                        </p>
+                        {message.type === "ai" && isLogicResult(message.content) ? (
+                          <LogicResultDisplay content={message.content} />
+                        ) : (
+                          <p className="text-base leading-relaxed whitespace-pre-wrap break-words" data-testid={`text-message-content-${message.id}`}>
+                            {message.content}
+                          </p>
+                        )}
                       </div>
                       {message.type === "ai" && message.confidence === "low" && (
                         <Badge variant="outline" className="self-start text-xs" data-testid={`badge-confidence-low-${message.id}`}>
