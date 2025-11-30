@@ -156,30 +156,42 @@ export interface LogicQueryPatterns {
   consonantCount: RegExp[];
   datasetStore: RegExp[];
   datasetQuery: RegExp[];
+  mathExpression: RegExp[];
 }
 
 const LOGIC_PATTERNS: LogicQueryPatterns = {
   wordCount: [
-    /kitne\s+words?\s+(hai|hain|h)/i,
+    /^count\s+words?$/i,
+    /^words?\s+count$/i,
+    /kitne\s+words?\s*(hai|hain|h)?/i,
     /total\s+words?/i,
     /word\s+count/i,
     /कितने\s+शब्द/i,
     /words?\s+count\s+karo/i,
     /words?\s+gino/i,
+    /count\s+the\s+words?/i,
+    /how\s+many\s+words?/i,
   ],
   lineCount: [
-    /kitni\s+lines?\s+(hai|hain|h)/i,
+    /^count\s+lines?$/i,
+    /^lines?\s+count$/i,
+    /kitni\s+lines?\s*(hai|hain|h)?/i,
     /total\s+lines?/i,
     /line\s+count/i,
     /कितनी\s+लाइन/i,
     /lines?\s+count\s+karo/i,
     /lines?\s+gino/i,
+    /count\s+the\s+lines?/i,
+    /how\s+many\s+lines?/i,
   ],
   charCount: [
-    /kitne\s+characters?\s+(hai|hain|h)/i,
+    /^count\s+characters?$/i,
+    /^characters?\s+count$/i,
+    /kitne\s+characters?\s*(hai|hain|h)?/i,
     /character\s+count/i,
     /कितने\s+अक्षर/i,
     /characters?\s+gino/i,
+    /how\s+many\s+characters?/i,
   ],
   specificWordCount: [
     /['"]([^'"]+)['"]\s+kitni\s+baar/i,
@@ -268,6 +280,13 @@ const LOGIC_PATTERNS: LogicQueryPatterns = {
     /from\s+dataset/i,
     /in\s+dataset/i,
   ],
+  mathExpression: [
+    /^\s*\d+\s*[\+\-\*\/x×÷]\s*\d+\s*[=\?]*\s*$/i,
+    /^\s*what\s+is\s+\d+\s*[\+\-\*\/x×÷]\s*\d+/i,
+    /^\s*calculate\s+\d+\s*[\+\-\*\/x×÷]\s*\d+/i,
+    /^\s*\d+\s*(plus|minus|times|divided\s+by)\s*\d+/i,
+    /^\s*\d+\s*(aur|plus|jama|guna|bhag)\s*\d+/i,
+  ],
 };
 
 export type LogicType = 
@@ -289,7 +308,41 @@ export type LogicType =
   | 'consonant_count'
   | 'dataset_store'
   | 'dataset_query'
+  | 'math_expression'
   | 'none';
+
+export function evaluateMathExpression(expr: string): number | null {
+  const cleaned = expr
+    .replace(/[=\?]/g, '')
+    .replace(/x/gi, '*')
+    .replace(/×/g, '*')
+    .replace(/÷/g, '/')
+    .replace(/plus/gi, '+')
+    .replace(/minus/gi, '-')
+    .replace(/times/gi, '*')
+    .replace(/divided\s+by/gi, '/')
+    .replace(/aur/gi, '+')
+    .replace(/jama/gi, '+')
+    .replace(/guna/gi, '*')
+    .replace(/bhag/gi, '/')
+    .replace(/\s+/g, '')
+    .trim();
+  
+  const match = cleaned.match(/^(-?\d+\.?\d*)([\+\-\*\/])(-?\d+\.?\d*)$/);
+  if (!match) return null;
+  
+  const num1 = parseFloat(match[1]);
+  const operator = match[2];
+  const num2 = parseFloat(match[3]);
+  
+  switch (operator) {
+    case '+': return num1 + num2;
+    case '-': return num1 - num2;
+    case '*': return num1 * num2;
+    case '/': return num2 !== 0 ? num1 / num2 : null;
+    default: return null;
+  }
+}
 
 export interface DetectedLogic {
   type: LogicType;
@@ -377,6 +430,10 @@ export function detectLogicQuery(query: string): DetectedLogic {
     return { type: 'consonant_count', isDatasetQuery, confidence: 0.85 };
   }
   
+  if (LOGIC_PATTERNS.mathExpression.some(p => p.test(query))) {
+    return { type: 'math_expression', isDatasetQuery: false, confidence: 0.95 };
+  }
+  
   return { type: 'none', isDatasetQuery: false, confidence: 0 };
 }
 
@@ -457,6 +514,23 @@ export function processLogicQuery(
     return {
       isLogicQuery: true,
       error: 'Dataset content is empty. Please provide text after "dataset:"',
+    };
+  }
+  
+  if (detected.type === 'math_expression') {
+    const mathResult = evaluateMathExpression(query);
+    if (mathResult !== null) {
+      return {
+        isLogicQuery: true,
+        result: {
+          type: 'math_expression',
+          result: mathResult,
+        },
+      };
+    }
+    return {
+      isLogicQuery: true,
+      error: 'Could not calculate the expression.',
     };
   }
   
@@ -638,7 +712,7 @@ export function formatLogicResult(result: AnalysisResult): string {
   const numericTypes = [
     'word_count', 'line_count', 'char_count', 'specific_word_count',
     'number_count', 'unique_word_count', 'vowel_count', 'consonant_count',
-    'sum', 'max', 'min', 'average'
+    'sum', 'max', 'min', 'average', 'math_expression'
   ];
   
   const arrayTypes = ['number_extract', 'repeated_words', 'unique_words'];

@@ -49,6 +49,44 @@ const DEFAULT_OPTIONS: ChatEngineOptions = {
   casualTone: true,
 };
 
+const GREETING_PATTERNS = [
+  /^hi+$/i,
+  /^hello+$/i,
+  /^hey+$/i,
+  /^hii+$/i,
+  /^hola$/i,
+  /^namaste$/i,
+  /^namaskar$/i,
+  /^good\s+(morning|afternoon|evening|night)$/i,
+  /^(kya|kaise)\s+(ho|haal|hai)$/i,
+  /^(sup|wassup|whatsup)$/i,
+];
+
+const GREETING_RESPONSES = {
+  english: [
+    "Hello! I'm BrainBox Agent. Ask me anything, and if I don't know, you can teach me!",
+    "Hi there! How can I help you today? Feel free to ask questions or teach me new things.",
+    "Hey! I'm ready to help. What would you like to know?",
+  ],
+  hinglish: [
+    "Namaste! Main BrainBox Agent hoon. Kuch bhi pucho, aur agar main nahi jaanta toh mujhe sikha do!",
+    "Hello! Aaj main aapki kaise help kar sakta hoon?",
+    "Hi! Main ready hoon. Kya jaanna chahte ho?",
+  ],
+};
+
+function isGreeting(query: string): boolean {
+  const normalized = query.trim().toLowerCase();
+  return GREETING_PATTERNS.some(p => p.test(normalized));
+}
+
+function getGreetingResponse(language: string): string {
+  const responses = language === 'hinglish' || language === 'hindi' 
+    ? GREETING_RESPONSES.hinglish 
+    : GREETING_RESPONSES.english;
+  return responses[Math.floor(Math.random() * responses.length)];
+}
+
 /**
  * Main function to process user query and generate response
  */
@@ -65,7 +103,17 @@ export async function processQuery(
   // Generate session ID for dataset storage
   const sessionId = context.sessionId || `session_${Date.now()}`;
 
-  // Check for logic/text analysis queries FIRST
+  // Handle greetings FIRST
+  if (isGreeting(userQuery)) {
+    return {
+      answer: getGreetingResponse(languageDetection.language),
+      confidence: 'high',
+      context: { ...context, sessionId },
+      languageDetection,
+    };
+  }
+
+  // Check for logic/text analysis queries
   const logicResult = processLogicQuery(userQuery, sessionId, context.datasetText);
   
   if (logicResult.isLogicQuery) {
