@@ -116,12 +116,14 @@ export async function processQuery(
   // Check if user is asking about previous message word count
   if (isPreviousMessageQuery(userQuery)) {
     const history = context.conversationHistory || [];
-    // Find the last user message (excluding current one)
-    const previousUserMessages = history.filter(msg => msg.role === 'user');
+    // Find user messages from history
+    const userMessages = history.filter(msg => msg.role === 'user');
     
-    if (previousUserMessages.length > 0) {
-      const lastUserMessage = previousUserMessages[previousUserMessages.length - 1];
-      const wordCount = countWords(lastUserMessage.content);
+    // The last user message in history is the current query itself,
+    // so we need the second-to-last one (index -2) for the "previous" message
+    if (userMessages.length >= 2) {
+      const previousUserMessage = userMessages[userMessages.length - 2];
+      const wordCount = countWords(previousUserMessage.content);
       
       const response = languageDetection.language === 'english' 
         ? `Your previous message had ${wordCount} word${wordCount !== 1 ? 's' : ''}.`
