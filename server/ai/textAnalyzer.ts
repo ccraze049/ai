@@ -352,7 +352,7 @@ export interface DetectedLogic {
 }
 
 export function detectLogicQuery(query: string): DetectedLogic {
-  const normalizedQuery = query.toLowerCase();
+  const normalizedQuery = query.toLowerCase().trim();
   
   const isDatasetQuery = LOGIC_PATTERNS.datasetQuery.some(p => p.test(normalizedQuery));
   
@@ -553,9 +553,31 @@ export function processLogicQuery(
     if (queryWithoutCommand.length > 5) {
       textToAnalyze = queryWithoutCommand;
     } else {
+      const errorMessages: Record<LogicType, string> = {
+        'word_count': 'Please provide text to count words. Example: "count words: Hello world" or first save a dataset using "dataset: your text here"',
+        'line_count': 'Please provide text to count lines. Example: "count lines: Line1\\nLine2" or first save a dataset.',
+        'char_count': 'Please provide text to count characters. Example: "count characters: Hello"',
+        'sum': 'Please provide numbers to sum. Example: "sum: 10 20 30"',
+        'max': 'Please provide numbers to find maximum. Example: "max: 5 10 15"',
+        'min': 'Please provide numbers to find minimum. Example: "min: 5 10 15"',
+        'average': 'Please provide numbers to calculate average. Example: "average: 10 20 30"',
+        'repeated_words': 'Please provide text to find repeated words.',
+        'unique_words': 'Please provide text to find unique words.',
+        'unique_word_count': 'Please provide text to count unique words.',
+        'word_frequency': 'Please provide text to analyze word frequency.',
+        'vowel_count': 'Please provide text to count vowels.',
+        'consonant_count': 'Please provide text to count consonants.',
+        'number_extract': 'Please provide text to extract numbers from.',
+        'number_count': 'Please provide text to count numbers in.',
+        'specific_word_count': 'Please provide text to search in.',
+        'dataset_store': 'Please provide content for the dataset.',
+        'dataset_query': 'No dataset available. First save a dataset using "dataset: your text here"',
+        'math_expression': 'Please provide a valid math expression.',
+        'none': 'Please provide text to analyze.',
+      };
       return {
         isLogicQuery: true,
-        error: 'Kripya text provide kare ya dataset me save kare using "dataset: [your text]"',
+        error: errorMessages[detected.type] || 'Please provide text to analyze.',
       };
     }
   }
