@@ -195,25 +195,28 @@ export function generateMultiplicationTable(num: number, upTo: number = 10): str
 }
 
 const DATE_TIME_PATTERNS = [
-  /aaj\s*(ki|ka)?\s*(date|tarikh|tarik|din)/i,
+  /aaj\s*(ki|ka)?\s*(date|tarikh|taarikh|tarik|tareekh|din)/i,
   /today'?s?\s*date/i,
   /what\s*(is)?\s*(the)?\s*date\s*(today)?/i,
-  /date\s*(kya|kia)\s*(hai|h)/i,
-  /kya\s*date\s*(hai|h)/i,
-  /aaj\s*(kya|konsa)\s*(din|day)\s*(hai|h)?/i,
+  /date\s*(kya|kia)\s*(hai|h|ha)/i,
+  /kya\s*date\s*(hai|h|ha)/i,
+  /(tarikh|taarikh|tarik|tareekh)\s*(kya|kia)?\s*(hai|h|ha)?/i,
+  /aaj\s*(kya|konsa)\s*(din|day)\s*(hai|h|ha)?/i,
   /what\s*day\s*(is)?\s*(it)?\s*(today)?/i,
   /today\s*(kya|konsa)\s*(din|day)/i,
-  /abhi\s*(ki|ka)?\s*(date|tarikh)/i,
+  /abhi\s*(ki|ka)?\s*(date|tarikh|taarikh|tarik)/i,
   /current\s*date/i,
   /आज\s*(की|का)?\s*(तारीख|दिन|डेट)/i,
-  /time\s*(kya|kia)\s*(hai|h)/i,
-  /kya\s*time\s*(hai|h|hua)/i,
+  /time\s*(kya|kia)\s*(hai|h|ha)/i,
+  /kya\s*time\s*(hai|h|ha|hua)/i,
   /what\s*(is)?\s*(the)?\s*time/i,
   /abhi\s*(kya|kitne)\s*(time|baje)/i,
-  /kitne\s*baje\s*(hai|h|hain)?/i,
+  /kitne\s*baje\s*(hai|h|ha|hain)?/i,
   /current\s*time/i,
   /aaj\s*(ki|ka)?\s*date\s*(aur|and|or)?\s*time/i,
   /date\s*(aur|and|or)\s*time/i,
+  /din\s*(kya|kia|konsa)\s*(hai|h|ha)?/i,
+  /konsa\s*din\s*(hai|h|ha)?/i,
 ];
 
 export interface DateTimeQueryResult {
@@ -231,7 +234,7 @@ export function isDateTimeQuery(query: string): DateTimeQueryResult {
   }
   
   const hasTime = /time|baje|kitne\s*baje|समय/i.test(normalizedQuery);
-  const hasDate = /date|tarikh|tarik|din|day|तारीख|दिन/i.test(normalizedQuery);
+  const hasDate = /date|tarikh|taarikh|tarik|tareekh|din|day|तारीख|दिन/i.test(normalizedQuery);
   const hasBoth = /(aur|and|or)/i.test(normalizedQuery) && hasDate && hasTime;
   
   if (hasBoth || (hasDate && hasTime)) {
