@@ -177,7 +177,7 @@ export function isMultiplicationTableQuery(query: string): { isMatch: boolean; n
     const match = normalizedQuery.match(pattern);
     if (match) {
       const num = parseInt(match[1]);
-      if (!isNaN(num) && num >= 1 && num <= 100) {
+      if (!isNaN(num) && num >= 1 && num <= 100000) {
         return { isMatch: true, number: num };
       }
     }
