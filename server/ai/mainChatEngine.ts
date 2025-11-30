@@ -17,7 +17,7 @@ import {
   getLearningSuccessMessage,
   type LearningContext,
 } from './learningManager';
-import { processLogicQuery, formatLogicResult, storeDataset, hasDataset, isPreviousMessageQuery, countWords } from './textAnalyzer';
+import { processLogicQuery, formatLogicResult, storeDataset, hasDataset, isPreviousMessageQuery, countWords, isMultiplicationTableQuery, generateMultiplicationTable } from './textAnalyzer';
 import type { QueryResponse } from '@shared/schema';
 
 export interface ChatContext {
@@ -107,6 +107,22 @@ export async function processQuery(
   if (isGreeting(userQuery)) {
     return {
       answer: getGreetingResponse(languageDetection.language),
+      confidence: 'high',
+      context: { ...context, sessionId },
+      languageDetection,
+    };
+  }
+
+  // Check if user is asking for multiplication table
+  const multiplicationQuery = isMultiplicationTableQuery(userQuery);
+  if (multiplicationQuery.isMatch && multiplicationQuery.number !== null) {
+    const table = generateMultiplicationTable(multiplicationQuery.number);
+    const header = languageDetection.language === 'english'
+      ? `Here's the multiplication table of ${multiplicationQuery.number}:`
+      : `${multiplicationQuery.number} ka table:`;
+    
+    return {
+      answer: `${header}\n\n${table}`,
       confidence: 'high',
       context: { ...context, sessionId },
       languageDetection,

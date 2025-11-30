@@ -159,6 +159,41 @@ export interface LogicQueryPatterns {
   mathExpression: RegExp[];
 }
 
+const MULTIPLICATION_TABLE_PATTERNS = [
+  /(\d+)\s*ka\s*table/i,
+  /(\d+)\s*ki\s*table/i,
+  /table\s+of\s+(\d+)/i,
+  /(\d+)\s*का\s*टेबल/i,
+  /multiplication\s+table\s+of\s+(\d+)/i,
+  /(\d+)\s*table\s*likho/i,
+  /(\d+)\s*ka\s*pahada/i,
+  /write\s+(\d+)\s*table/i,
+];
+
+export function isMultiplicationTableQuery(query: string): { isMatch: boolean; number: number | null } {
+  const normalizedQuery = query.toLowerCase().trim();
+  
+  for (const pattern of MULTIPLICATION_TABLE_PATTERNS) {
+    const match = normalizedQuery.match(pattern);
+    if (match) {
+      const num = parseInt(match[1]);
+      if (!isNaN(num) && num >= 1 && num <= 100) {
+        return { isMatch: true, number: num };
+      }
+    }
+  }
+  
+  return { isMatch: false, number: null };
+}
+
+export function generateMultiplicationTable(num: number, upTo: number = 10): string {
+  const lines: string[] = [];
+  for (let i = 1; i <= upTo; i++) {
+    lines.push(`${num} x ${i} = ${num * i}`);
+  }
+  return lines.join('\n');
+}
+
 const PREVIOUS_MESSAGE_PATTERNS = [
   /maine\s+kitne\s+words?\s+(bheje|send\s+kiye|likhe)/i,
   /mane\s+kitne\s+words?\s+(bheje|send\s+kiye|likhe)/i,
