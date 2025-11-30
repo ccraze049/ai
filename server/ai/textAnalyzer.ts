@@ -161,37 +161,37 @@ export interface LogicQueryPatterns {
 
 const LOGIC_PATTERNS: LogicQueryPatterns = {
   wordCount: [
-    /^count\s+words?$/i,
-    /^words?\s+count$/i,
+    /^count\s+words?\s*[:.]?\s*/i,
+    /^words?\s+count\s*[:.]?\s*/i,
     /kitne\s+words?\s*(hai|hain|h)?/i,
-    /total\s+words?/i,
-    /word\s+count/i,
+    /total\s+words?\s*[:.]?\s*/i,
+    /word\s+count\s*[:.]?\s*/i,
     /कितने\s+शब्द/i,
     /words?\s+count\s+karo/i,
     /words?\s+gino/i,
-    /count\s+the\s+words?/i,
-    /how\s+many\s+words?/i,
+    /count\s+the\s+words?\s*[:.]?\s*/i,
+    /how\s+many\s+words?\s*[:.]?\s*/i,
   ],
   lineCount: [
-    /^count\s+lines?$/i,
-    /^lines?\s+count$/i,
+    /^count\s+lines?\s*[:.]?\s*/i,
+    /^lines?\s+count\s*[:.]?\s*/i,
     /kitni\s+lines?\s*(hai|hain|h)?/i,
-    /total\s+lines?/i,
-    /line\s+count/i,
+    /total\s+lines?\s*[:.]?\s*/i,
+    /line\s+count\s*[:.]?\s*/i,
     /कितनी\s+लाइन/i,
     /lines?\s+count\s+karo/i,
     /lines?\s+gino/i,
-    /count\s+the\s+lines?/i,
-    /how\s+many\s+lines?/i,
+    /count\s+the\s+lines?\s*[:.]?\s*/i,
+    /how\s+many\s+lines?\s*[:.]?\s*/i,
   ],
   charCount: [
-    /^count\s+characters?$/i,
-    /^characters?\s+count$/i,
+    /^count\s+characters?\s*[:.]?\s*/i,
+    /^characters?\s+count\s*[:.]?\s*/i,
     /kitne\s+characters?\s*(hai|hain|h)?/i,
-    /character\s+count/i,
+    /character\s+count\s*[:.]?\s*/i,
     /कितने\s+अक्षर/i,
     /characters?\s+gino/i,
-    /how\s+many\s+characters?/i,
+    /how\s+many\s+characters?\s*[:.]?\s*/i,
   ],
   specificWordCount: [
     /['"]([^'"]+)['"]\s+kitni\s+baar/i,
@@ -550,7 +550,7 @@ export function processLogicQuery(
   } else {
     const queryWithoutCommand = stripCommandPhrase(query);
     
-    if (queryWithoutCommand.length > 5) {
+    if (queryWithoutCommand.length > 0) {
       textToAnalyze = queryWithoutCommand;
     } else {
       const errorMessages: Record<LogicType, string> = {
