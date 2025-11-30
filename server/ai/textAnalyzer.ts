@@ -186,10 +186,10 @@ export function isMultiplicationTableQuery(query: string): { isMatch: boolean; n
   return { isMatch: false, number: null };
 }
 
-export function generateMultiplicationTable(num: number, upTo: number = 10): string {
+export function generateMultiplicationTable(num: number, upTo: number = 20): string {
   const lines: string[] = [];
   for (let i = 1; i <= upTo; i++) {
-    lines.push(`${num} x ${i} = ${num * i}`);
+    lines.push(`${num} × ${i} = ${num * i}`);
   }
   return lines.join('\n');
 }
