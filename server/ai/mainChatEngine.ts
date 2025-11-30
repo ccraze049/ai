@@ -132,7 +132,7 @@ export async function processQuery(
   // Check if user is asking for date/time
   const dateTimeQuery = isDateTimeQuery(userQuery);
   if (dateTimeQuery.isMatch && dateTimeQuery.type) {
-    const response = getCurrentDateTime(dateTimeQuery.type, languageDetection.language);
+    const response = getCurrentDateTime(dateTimeQuery.type, languageDetection.language, dateTimeQuery.dayOffset);
     
     return {
       answer: response,

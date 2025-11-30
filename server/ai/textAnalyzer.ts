@@ -228,11 +228,18 @@ const DATE_TIME_PATTERNS = [
   /date\s*bata/i,
   /time\s*bata/i,
   /tarikh\s*bata/i,
+  /kal\s*(ki|ka)?\s*(date|tarikh|taarikh|tarik|tareekh|din)?/i,
+  /tomorrow'?s?\s*(date)?/i,
+  /parso\s*(ki|ka)?\s*(date|tarikh|taarikh|tarik|tareekh|din)?/i,
+  /day\s*after\s*tomorrow/i,
+  /कल\s*(की|का)?\s*(तारीख|दिन|डेट)?/i,
+  /परसों?\s*(की|का)?\s*(तारीख|दिन|डेट)?/i,
 ];
 
 export interface DateTimeQueryResult {
   isMatch: boolean;
   type: 'date' | 'time' | 'both' | null;
+  dayOffset: number;
 }
 
 export function isDateTimeQuery(query: string): DateTimeQueryResult {
@@ -241,24 +248,32 @@ export function isDateTimeQuery(query: string): DateTimeQueryResult {
   const isDateTimeMatch = DATE_TIME_PATTERNS.some(p => p.test(normalizedQuery));
   
   if (!isDateTimeMatch) {
-    return { isMatch: false, type: null };
+    return { isMatch: false, type: null, dayOffset: 0 };
+  }
+  
+  let dayOffset = 0;
+  if (/kal|tomorrow|कल/i.test(normalizedQuery)) {
+    dayOffset = 1;
+  } else if (/parso|परसों?|day\s*after\s*tomorrow/i.test(normalizedQuery)) {
+    dayOffset = 2;
   }
   
   const hasTime = /time|baje|kitne\s*baje|समय/i.test(normalizedQuery);
-  const hasDate = /date|tarikh|taarikh|tarik|tareekh|din|day|तारीख|दिन/i.test(normalizedQuery);
+  const hasDate = /date|tarikh|taarikh|tarik|tareekh|din|day|तारीख|दिन|kal|tomorrow|parso|कल|परसों?/i.test(normalizedQuery);
   const hasBoth = /(aur|and|or)/i.test(normalizedQuery) && hasDate && hasTime;
   
   if (hasBoth || (hasDate && hasTime)) {
-    return { isMatch: true, type: 'both' };
-  } else if (hasTime) {
-    return { isMatch: true, type: 'time' };
+    return { isMatch: true, type: 'both', dayOffset };
+  } else if (hasTime && dayOffset === 0) {
+    return { isMatch: true, type: 'time', dayOffset };
   } else {
-    return { isMatch: true, type: 'date' };
+    return { isMatch: true, type: 'date', dayOffset };
   }
 }
 
-export function getCurrentDateTime(type: 'date' | 'time' | 'both', language: string): string {
+export function getCurrentDateTime(type: 'date' | 'time' | 'both', language: string, dayOffset: number = 0): string {
   const now = new Date();
+  now.setDate(now.getDate() + dayOffset);
   
   const days = {
     english: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
@@ -275,16 +290,24 @@ export function getCurrentDateTime(type: 'date' | 'time' | 'both', language: str
   const date = now.getDate();
   const year = now.getFullYear();
   
-  const hours = now.getHours();
-  const minutes = now.getMinutes().toString().padStart(2, '0');
+  const currentTime = new Date();
+  const hours = currentTime.getHours();
+  const minutes = currentTime.getMinutes().toString().padStart(2, '0');
   const ampm = hours >= 12 ? 'PM' : 'AM';
   const displayHours = hours % 12 || 12;
   
+  let dayLabel = { english: 'Today', hinglish: 'Aaj' };
+  if (dayOffset === 1) {
+    dayLabel = { english: 'Tomorrow', hinglish: 'Kal' };
+  } else if (dayOffset === 2) {
+    dayLabel = { english: 'Day after tomorrow', hinglish: 'Parso' };
+  }
+  
   if (type === 'date') {
     if (language === 'english') {
-      return `Today is ${dayName}, ${monthName} ${date}, ${year}.`;
+      return `${dayLabel.english} is ${dayName}, ${monthName} ${date}, ${year}.`;
     } else {
-      return `Aaj ${dayName} hai, ${date} ${monthName} ${year}.`;
+      return `${dayLabel.hinglish} ${dayName} hai, ${date} ${monthName} ${year}.`;
     }
   } else if (type === 'time') {
     if (language === 'english') {
@@ -294,9 +317,9 @@ export function getCurrentDateTime(type: 'date' | 'time' | 'both', language: str
     }
   } else {
     if (language === 'english') {
-      return `Today is ${dayName}, ${monthName} ${date}, ${year}. The current time is ${displayHours}:${minutes} ${ampm}.`;
+      return `${dayLabel.english} is ${dayName}, ${monthName} ${date}, ${year}. The current time is ${displayHours}:${minutes} ${ampm}.`;
     } else {
-      return `Aaj ${dayName} hai, ${date} ${monthName} ${year}. Abhi ${displayHours}:${minutes} ${ampm} baje hain.`;
+      return `${dayLabel.hinglish} ${dayName} hai, ${date} ${monthName} ${year}. Abhi ${displayHours}:${minutes} ${ampm} baje hain.`;
     }
   }
 }
