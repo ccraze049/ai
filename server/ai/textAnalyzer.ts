@@ -194,6 +194,99 @@ export function generateMultiplicationTable(num: number, upTo: number = 10): str
   return lines.join('\n');
 }
 
+const DATE_TIME_PATTERNS = [
+  /aaj\s*(ki|ka)?\s*(date|tarikh|tarik|din)/i,
+  /today'?s?\s*date/i,
+  /what\s*(is)?\s*(the)?\s*date\s*(today)?/i,
+  /date\s*(kya|kia)\s*(hai|h)/i,
+  /kya\s*date\s*(hai|h)/i,
+  /aaj\s*(kya|konsa)\s*(din|day)\s*(hai|h)?/i,
+  /what\s*day\s*(is)?\s*(it)?\s*(today)?/i,
+  /today\s*(kya|konsa)\s*(din|day)/i,
+  /abhi\s*(ki|ka)?\s*(date|tarikh)/i,
+  /current\s*date/i,
+  /आज\s*(की|का)?\s*(तारीख|दिन|डेट)/i,
+  /time\s*(kya|kia)\s*(hai|h)/i,
+  /kya\s*time\s*(hai|h|hua)/i,
+  /what\s*(is)?\s*(the)?\s*time/i,
+  /abhi\s*(kya|kitne)\s*(time|baje)/i,
+  /kitne\s*baje\s*(hai|h|hain)?/i,
+  /current\s*time/i,
+  /aaj\s*(ki|ka)?\s*date\s*(aur|and|or)?\s*time/i,
+  /date\s*(aur|and|or)\s*time/i,
+];
+
+export interface DateTimeQueryResult {
+  isMatch: boolean;
+  type: 'date' | 'time' | 'both' | null;
+}
+
+export function isDateTimeQuery(query: string): DateTimeQueryResult {
+  const normalizedQuery = query.toLowerCase().trim();
+  
+  const isDateTimeMatch = DATE_TIME_PATTERNS.some(p => p.test(normalizedQuery));
+  
+  if (!isDateTimeMatch) {
+    return { isMatch: false, type: null };
+  }
+  
+  const hasTime = /time|baje|kitne\s*baje|समय/i.test(normalizedQuery);
+  const hasDate = /date|tarikh|tarik|din|day|तारीख|दिन/i.test(normalizedQuery);
+  const hasBoth = /(aur|and|or)/i.test(normalizedQuery) && hasDate && hasTime;
+  
+  if (hasBoth || (hasDate && hasTime)) {
+    return { isMatch: true, type: 'both' };
+  } else if (hasTime) {
+    return { isMatch: true, type: 'time' };
+  } else {
+    return { isMatch: true, type: 'date' };
+  }
+}
+
+export function getCurrentDateTime(type: 'date' | 'time' | 'both', language: string): string {
+  const now = new Date();
+  
+  const days = {
+    english: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    hinglish: ['Raviwar', 'Somwar', 'Mangalwar', 'Budhwar', 'Guruwar', 'Shukrawar', 'Shaniwar'],
+  };
+  
+  const months = {
+    english: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+    hinglish: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+  };
+  
+  const dayName = language === 'english' ? days.english[now.getDay()] : days.hinglish[now.getDay()];
+  const monthName = language === 'english' ? months.english[now.getMonth()] : months.hinglish[now.getMonth()];
+  const date = now.getDate();
+  const year = now.getFullYear();
+  
+  const hours = now.getHours();
+  const minutes = now.getMinutes().toString().padStart(2, '0');
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+  const displayHours = hours % 12 || 12;
+  
+  if (type === 'date') {
+    if (language === 'english') {
+      return `Today is ${dayName}, ${monthName} ${date}, ${year}.`;
+    } else {
+      return `Aaj ${dayName} hai, ${date} ${monthName} ${year}.`;
+    }
+  } else if (type === 'time') {
+    if (language === 'english') {
+      return `The current time is ${displayHours}:${minutes} ${ampm}.`;
+    } else {
+      return `Abhi ${displayHours}:${minutes} ${ampm} baje hain.`;
+    }
+  } else {
+    if (language === 'english') {
+      return `Today is ${dayName}, ${monthName} ${date}, ${year}. The current time is ${displayHours}:${minutes} ${ampm}.`;
+    } else {
+      return `Aaj ${dayName} hai, ${date} ${monthName} ${year}. Abhi ${displayHours}:${minutes} ${ampm} baje hain.`;
+    }
+  }
+}
+
 const PREVIOUS_MESSAGE_PATTERNS = [
   /maine\s+kitne\s+words?\s+(bheje|send\s+kiye|likhe)/i,
   /mane\s+kitne\s+words?\s+(bheje|send\s+kiye|likhe)/i,

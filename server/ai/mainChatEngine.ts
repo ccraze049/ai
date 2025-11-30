@@ -17,7 +17,7 @@ import {
   getLearningSuccessMessage,
   type LearningContext,
 } from './learningManager';
-import { processLogicQuery, formatLogicResult, storeDataset, hasDataset, isPreviousMessageQuery, countWords, isMultiplicationTableQuery, generateMultiplicationTable } from './textAnalyzer';
+import { processLogicQuery, formatLogicResult, storeDataset, hasDataset, isPreviousMessageQuery, countWords, isMultiplicationTableQuery, generateMultiplicationTable, isDateTimeQuery, getCurrentDateTime } from './textAnalyzer';
 import type { QueryResponse } from '@shared/schema';
 
 export interface ChatContext {
@@ -123,6 +123,19 @@ export async function processQuery(
     
     return {
       answer: `${header}\n\n${table}`,
+      confidence: 'high',
+      context: { ...context, sessionId },
+      languageDetection,
+    };
+  }
+
+  // Check if user is asking for date/time
+  const dateTimeQuery = isDateTimeQuery(userQuery);
+  if (dateTimeQuery.isMatch && dateTimeQuery.type) {
+    const response = getCurrentDateTime(dateTimeQuery.type, languageDetection.language);
+    
+    return {
+      answer: response,
       confidence: 'high',
       context: { ...context, sessionId },
       languageDetection,
