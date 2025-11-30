@@ -234,6 +234,10 @@ const DATE_TIME_PATTERNS = [
   /day\s*after\s*tomorrow/i,
   /कल\s*(की|का)?\s*(तारीख|दिन|डेट)?/i,
   /परसों?\s*(की|का)?\s*(तारीख|दिन|डेट)?/i,
+  /kal\s*(kya|konsa|konsi)?\s*(date|tarikh|taarikh|tarik|tareekh|din)?\s*(thi|tha|the)/i,
+  /yesterday'?s?\s*(date)?/i,
+  /what\s*(was)?\s*(the)?\s*date\s*yesterday/i,
+  /कल\s*(क्या|कौनसी|कौनसा)?\s*(तारीख|दिन|डेट)?\s*(थी|था|थे)/i,
 ];
 
 export interface DateTimeQueryResult {
@@ -252,14 +256,25 @@ export function isDateTimeQuery(query: string): DateTimeQueryResult {
   }
   
   let dayOffset = 0;
-  if (/kal|tomorrow|कल/i.test(normalizedQuery)) {
+  const isPastTense = /thi|tha|the|था|थी|थे|yesterday|was/i.test(normalizedQuery);
+  const hasKal = /kal|कल/i.test(normalizedQuery);
+  
+  if (hasKal) {
+    if (isPastTense) {
+      dayOffset = -1;
+    } else {
+      dayOffset = 1;
+    }
+  } else if (/yesterday/i.test(normalizedQuery)) {
+    dayOffset = -1;
+  } else if (/tomorrow/i.test(normalizedQuery)) {
     dayOffset = 1;
   } else if (/parso|परसों?|day\s*after\s*tomorrow/i.test(normalizedQuery)) {
     dayOffset = 2;
   }
   
   const hasTime = /time|baje|kitne\s*baje|समय/i.test(normalizedQuery);
-  const hasDate = /date|tarikh|taarikh|tarik|tareekh|din|day|तारीख|दिन|kal|tomorrow|parso|कल|परसों?/i.test(normalizedQuery);
+  const hasDate = /date|tarikh|taarikh|tarik|tareekh|din|day|तारीख|दिन|kal|tomorrow|parso|yesterday|कल|परसों?/i.test(normalizedQuery);
   const hasBoth = /(aur|and|or)/i.test(normalizedQuery) && hasDate && hasTime;
   
   if (hasBoth || (hasDate && hasTime)) {
@@ -297,17 +312,25 @@ export function getCurrentDateTime(type: 'date' | 'time' | 'both', language: str
   const displayHours = hours % 12 || 12;
   
   let dayLabel = { english: 'Today', hinglish: 'Aaj' };
-  if (dayOffset === 1) {
+  if (dayOffset === -1) {
+    dayLabel = { english: 'Yesterday', hinglish: 'Kal' };
+  } else if (dayOffset === 1) {
     dayLabel = { english: 'Tomorrow', hinglish: 'Kal' };
   } else if (dayOffset === 2) {
     dayLabel = { english: 'Day after tomorrow', hinglish: 'Parso' };
   }
   
+  const isPast = dayOffset < 0;
+  const verb = { 
+    english: isPast ? 'was' : 'is', 
+    hinglish: isPast ? 'tha' : 'hai' 
+  };
+  
   if (type === 'date') {
     if (language === 'english') {
-      return `${dayLabel.english} is ${dayName}, ${monthName} ${date}, ${year}.`;
+      return `${dayLabel.english} ${verb.english} ${dayName}, ${monthName} ${date}, ${year}.`;
     } else {
-      return `${dayLabel.hinglish} ${dayName} hai, ${date} ${monthName} ${year}.`;
+      return `${dayLabel.hinglish} ${dayName} ${verb.hinglish}, ${date} ${monthName} ${year}.`;
     }
   } else if (type === 'time') {
     if (language === 'english') {
@@ -317,9 +340,9 @@ export function getCurrentDateTime(type: 'date' | 'time' | 'both', language: str
     }
   } else {
     if (language === 'english') {
-      return `${dayLabel.english} is ${dayName}, ${monthName} ${date}, ${year}. The current time is ${displayHours}:${minutes} ${ampm}.`;
+      return `${dayLabel.english} ${verb.english} ${dayName}, ${monthName} ${date}, ${year}. The current time is ${displayHours}:${minutes} ${ampm}.`;
     } else {
-      return `${dayLabel.hinglish} ${dayName} hai, ${date} ${monthName} ${year}. Abhi ${displayHours}:${minutes} ${ampm} baje hain.`;
+      return `${dayLabel.hinglish} ${dayName} ${verb.hinglish}, ${date} ${monthName} ${year}. Abhi ${displayHours}:${minutes} ${ampm} baje hain.`;
     }
   }
 }
