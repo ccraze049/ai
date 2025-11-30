@@ -217,6 +217,17 @@ const DATE_TIME_PATTERNS = [
   /date\s*(aur|and|or)\s*time/i,
   /din\s*(kya|kia|konsa)\s*(hai|h|ha)?/i,
   /konsa\s*din\s*(hai|h|ha)?/i,
+  /^date\s*\??$/i,
+  /^time\s*\??$/i,
+  /^tarikh\s*\??$/i,
+  /^taarikh\s*\??$/i,
+  /^tarik\s*\??$/i,
+  /date\s*batao/i,
+  /time\s*batao/i,
+  /tarikh\s*batao/i,
+  /date\s*bata/i,
+  /time\s*bata/i,
+  /tarikh\s*bata/i,
 ];
 
 export interface DateTimeQueryResult {
